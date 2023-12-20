@@ -64,13 +64,19 @@ workflow IRIDANEXT {
     // NB: `input` corresponds to `params.input` and associated sample sheet schema
     input = Channel.fromSamplesheet("input")
     meta_accessions = input.map {meta -> [meta, meta.run_accession[0]]}
-    accessions = input.map {meta -> meta.run_accession[0]}
+    accessions = input.map {meta -> meta.run_accession[0]}.collect()
+    log.info "accessions (${accessions.getClass()}): ${accessions}"
 
     FASTQ_DOWNLOAD_PREFETCH_FASTERQDUMP_SRATOOLS (
         ch_sra_ids = meta_accessions,
         ch_dbgap_key = []
     )
     ch_versions = ch_versions.mix(FASTQ_DOWNLOAD_PREFETCH_FASTERQDUMP_SRATOOLS.out.versions)
+
+    FFQ (
+        accessions
+    )
+    ch_versions = ch_versions.mix(FFQ.out.versions)
 
     CUSTOM_DUMPSOFTWAREVERSIONS (
         ch_versions.unique().collectFile(name: 'collated_versions.yml')
