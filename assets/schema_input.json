@@ -17,6 +17,7 @@
             "run_accession": {
                 "type": "string",
                 "pattern": "^(SRR|ERR)\\S+$",
+                "meta": ["run_accession"],
                 "errorMessage": "Must provide a valid run accession"
             }
         },

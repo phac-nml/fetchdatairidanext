@@ -31,6 +31,7 @@ WorkflowIridanextexample.initialise(params, log)
 // SUBWORKFLOW: Consisting of a mix of local and nf-core/modules
 //
 include { FASTQ_DOWNLOAD_PREFETCH_FASTERQDUMP_SRATOOLS } from '../subworkflows/nf-core/fastq_download_prefetch_fasterqdump_sratools'
+include { FFQ } from '../modules/nf-core/ffq/main'
 include { INPUT_CHECK          } from '../subworkflows/local/input_check'
 include { GENERATE_SAMPLE_JSON } from '../modules/local/generatesamplejson/main'
 include { SIMPLIFY_IRIDA_JSON  } from '../modules/local/simplifyiridajson/main'
@@ -62,9 +63,11 @@ workflow IRIDANEXT {
     // Create a new channel of metadata from a sample sheet
     // NB: `input` corresponds to `params.input` and associated sample sheet schema
     input = Channel.fromSamplesheet("input")
+    meta_accessions = input.map {meta -> [meta, meta.run_accession[0]]}
+    accessions = input.map {meta -> meta.run_accession[0]}
 
     FASTQ_DOWNLOAD_PREFETCH_FASTERQDUMP_SRATOOLS (
-        ch_sra_ids = input,
+        ch_sra_ids = meta_accessions,
         ch_dbgap_key = []
     )
     ch_versions = ch_versions.mix(FASTQ_DOWNLOAD_PREFETCH_FASTERQDUMP_SRATOOLS.out.versions)
