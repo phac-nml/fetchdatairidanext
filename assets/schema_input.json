@@ -18,6 +18,7 @@
                 "type": "string",
                 "pattern": "^(SRR|ERR)\\S+$",
                 "meta": ["run_accession"],
+                "unique": true,
                 "errorMessage": "Must provide a valid run accession"
             }
         },

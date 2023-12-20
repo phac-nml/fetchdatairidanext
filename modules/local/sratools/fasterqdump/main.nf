@@ -13,8 +13,8 @@ process SRATOOLS_FASTERQDUMP {
     path certificate
 
     output:
-    tuple val(meta), path('*.fastq.gz'), emit: reads
-    path "versions.yml"                , emit: versions
+    tuple val(meta), path('reads/*.fastq.gz'), emit: reads
+    path "versions.yml"                      , emit: versions
 
     when:
     task.ext.when == null || task.ext.when
@@ -23,7 +23,6 @@ process SRATOOLS_FASTERQDUMP {
     def args = task.ext.args ?: ''
     def args2 = task.ext.args2 ?: ''
     def prefix = task.ext.prefix ?: "${meta.id}"
-    def outfile = meta.single_end ? "${prefix}.fastq" : prefix
     def key_file = ''
 
     if (certificate.toString().endsWith('.jwt')){
@@ -39,7 +38,7 @@ process SRATOOLS_FASTERQDUMP {
     fasterq-dump \\
         $args \\
         --threads $task.cpus \\
-        --outfile $outfile \\
+        --outdir reads \\
         ${key_file} \\
         ${sra}
 
@@ -47,7 +46,7 @@ process SRATOOLS_FASTERQDUMP {
         $args2 \\
         --no-name \\
         --processes $task.cpus \\
-        *.fastq
+        reads/*.fastq
 
     cat <<-END_VERSIONS > versions.yml
     "${task.process}":
