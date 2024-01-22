@@ -18,7 +18,7 @@
           "type": "object"
         }
       },
-      "required": ["global", "samples", "invalid"]
+      "required": ["global", "samples"]
     },
     "metadata": {
       "type": "object",
