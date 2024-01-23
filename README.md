@@ -1,31 +1,32 @@
 [![Nextflow](https://img.shields.io/badge/nextflow-%E2%89%A523.04.3-brightgreen.svg)](https://www.nextflow.io/)
 
-# Example Pipeline for IRIDA Next
+# fetchdatairidanext pipeline
 
-This is an example pipeline to be used for integration with IRIDA Next.
+This pipeline can be used to fetch data from NCBI for integration into IRIDA Next.
 
 # Input
 
 The input to the pipeline is a standard sample sheet (passed as `--input samplesheet.csv`) that looks like:
 
-| sample  | fastq_1         | fastq_2         |
-| ------- | --------------- | --------------- |
-| SampleA | file_1.fastq.gz | file_2.fastq.gz |
+| sample  | ncbi_accession  |
+| ------- | --------------- |
+| SampleA | ERR1109373      |
+| SampleB | SRR13191702     |
 
-The structure of this file is defined in [assets/schema_input.json](assets/schema_input.json). Validation of the sample sheet is performed by [nf-validation](https://nextflow-io.github.io/nf-validation/).
+The structure of this file is defined in [assets/schema_input.json](assets/schema_input.json). An example of this file is provided at [assets/samplesheet.csv](assets/samplesheet.csv).
 
 # Parameters
 
 The main parameters are `--input` as defined above and `--output` for specifying the output results directory. You may wish to provide `-profile singularity` to specify the use of singularity containers and `-r [branch]` to specify which GitHub branch you would like to run.
 
-Other parameters (defaults from nf-core) are defined in [nextflow_schema.json](nextflow_schmea.json).
+Other parameters (defaults from nf-core) are defined in [nextflow_schema.json](nextflow_schema.json).
 
 # Running
 
 To run the pipeline, please do:
 
 ```bash
-nextflow run phac-nml/iridanextexample -profile singularity -r main -latest --input assets/samplesheet.csv --outdir results
+nextflow run phac-nml/fetchdatairidanext -profile singularity -r main -latest --input assets/samplesheet.csv --outdir results
 ```
 
 Where the `samplesheet.csv` is structured as specified in the [Input](#input) section.
