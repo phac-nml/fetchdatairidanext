@@ -1,9 +1,12 @@
 .nextflow*
 work/
-data/
+/data/
 results/
 .DS_Store
 testing/
 testing*
 *.pyc
 *.swp
+/.nf-test
+/.nf-test.log
+ids.csv

@@ -1,0 +1,28 @@
+nextflow_pipeline {
+
+    name "Test fetching small datasets from NCBI"
+    script "main.nf"
+
+    test("basic integration test") {
+
+        when {
+            params {
+                input = "$baseDir/tests/data/samplesheet.csv"
+                outdir = "test1_out"
+            }
+        }
+
+        then {
+            assert workflow.success
+
+            // IRIDA Next output file
+            assert path("$launchDir/test1_out/iridanext.output.json").json == path("$baseDir/tests/data/test1_iridanext.output.json").json
+
+            // Output data
+            assert path("$launchDir/test1_out/sratools/reads/ERR1109373_1.fastq.gz").linesGzip.size() == 512
+            assert path("$launchDir/test1_out/sratools/reads/ERR1109373_2.fastq.gz").linesGzip.size() == 512
+            assert path("$launchDir/test1_out/sratools/reads/SRR13191702_1.fastq.gz").linesGzip.size() == 364
+            assert path("$launchDir/test1_out/sratools/reads/SRR13191702_2.fastq.gz").linesGzip.size() == 364
+        }
+    }
+}
