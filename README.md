@@ -8,10 +8,10 @@ This pipeline can be used to fetch data from NCBI for integration into IRIDA Nex
 
 The input to the pipeline is a standard sample sheet (passed as `--input samplesheet.csv`) that looks like:
 
-| sample  | ncbi_accession  |
-| ------- | --------------- |
-| SampleA | ERR1109373      |
-| SampleB | SRR13191702     |
+| sample  | ncbi_accession |
+| ------- | -------------- |
+| SampleA | ERR1109373     |
+| SampleB | SRR13191702    |
 
 The structure of this file is defined in [assets/schema_input.json](assets/schema_input.json). An example of this file is provided at [assets/samplesheet.csv](assets/samplesheet.csv).
 
