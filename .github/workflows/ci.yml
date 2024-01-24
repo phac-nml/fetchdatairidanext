@@ -54,6 +54,13 @@ jobs:
         run: |
           nf-test test
 
+      - name: 'Upload nf-test log'
+        uses: actions/upload-artifact@v4
+        with:
+          name: nextflow-log
+          path: ".nf-test/tests/*/meta/nextflow.log"
+          retention-days: 5
+
       - name: Nextflow run with test profile
         run: |
           nextflow run ${GITHUB_WORKSPACE} -profile test,docker --outdir ./results
