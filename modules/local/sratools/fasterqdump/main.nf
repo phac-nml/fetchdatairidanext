@@ -42,6 +42,10 @@ process SRATOOLS_FASTERQDUMP {
         ${key_file} \\
         ${sra}
 
+    # Without this, I am unable to run tests for this module
+    # since I cannot access files in this directory
+    chmod a+x reads
+
     pigz \\
         $args2 \\
         --no-name \\
