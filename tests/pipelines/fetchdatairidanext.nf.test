@@ -14,6 +14,8 @@ nextflow_pipeline {
 
         then {
             assert workflow.success
+
+            assert path("$launchDir/results/iridanext.output.json").json == path("$baseDir/tests/data/test1_iridanext.output.json").json            
         }
     }
 }
