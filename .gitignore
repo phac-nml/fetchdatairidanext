@@ -7,3 +7,6 @@ testing/
 testing*
 *.pyc
 *.swp
+/.nf-test
+/.nf-test.log
+ids.csv

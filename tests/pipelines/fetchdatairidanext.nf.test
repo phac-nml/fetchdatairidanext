@@ -1,0 +1,19 @@
+nextflow_pipeline {
+
+    name "Test fetching small datasets from NCBI"
+    script "main.nf"
+
+    test("basic integration test") {
+
+        when {
+            params {
+              input = "$baseDir/tests/data/samplesheet.csv"
+              outdir = "results"
+            }
+        }
+
+        then {
+            assert workflow.success
+        }
+    }
+}
