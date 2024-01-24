@@ -35,16 +35,16 @@ process SRATOOLS_FASTERQDUMP {
     """
     export NCBI_SETTINGS="\$PWD/${ncbi_settings}"
 
+    # Make directory ahead of time since otherwise
+    # fasterq-dump does not set correct permissions/owner
+    mkdir reads
+
     fasterq-dump \\
         $args \\
         --threads $task.cpus \\
         --outdir reads \\
         ${key_file} \\
         ${sra}
-
-    # Without this, I am unable to run tests for this module
-    # since I cannot access files in this directory
-    chmod a+x reads
 
     pigz \\
         $args2 \\
