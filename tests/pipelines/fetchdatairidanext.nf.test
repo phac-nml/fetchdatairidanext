@@ -7,15 +7,15 @@ nextflow_pipeline {
 
         when {
             params {
-              input = "$baseDir/tests/data/samplesheet.csv"
-              outdir = "results"
+                input = "$baseDir/tests/data/samplesheet.csv"
+                outdir = "results"
             }
         }
 
         then {
             assert workflow.success
 
-            assert path("$launchDir/results/iridanext.output.json").json == path("$baseDir/tests/data/test1_iridanext.output.json").json            
+            assert path("$launchDir/results/iridanext.output.json").json == path("$baseDir/tests/data/test1_iridanext.output.json").json
         }
     }
 }
