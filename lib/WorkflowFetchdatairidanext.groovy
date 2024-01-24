@@ -5,7 +5,7 @@
 import nextflow.Nextflow
 import groovy.text.SimpleTemplateEngine
 
-class WorkflowIridanextExample {
+class WorkflowFetchdatairidanext {
 
     //
     // Check and validate parameters
