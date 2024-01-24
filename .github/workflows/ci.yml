@@ -54,11 +54,6 @@ jobs:
         run: |
           nf-test test
 
-      - name: List test files
-        if: always()
-        run: |
-          ls -laR .nf-test/tests/*/work/*
-
       - name: Nextflow run with test profile
         run: |
           nextflow run ${GITHUB_WORKSPACE} -profile test,docker --outdir ./results
