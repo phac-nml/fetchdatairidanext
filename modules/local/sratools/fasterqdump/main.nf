@@ -37,7 +37,7 @@ process SRATOOLS_FASTERQDUMP {
 
     # Make directory ahead of time since otherwise
     # fasterq-dump does not set correct permissions/owner
-    mkdir reads
+    mkdir -p reads
 
     fasterq-dump \\
         $args \\
