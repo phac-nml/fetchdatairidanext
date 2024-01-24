@@ -39,13 +39,13 @@ WorkflowMain.initialise(workflow, params, log)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 */
 
-include { IRIDANEXT } from './workflows/iridanextexample'
+include { FETCHDATAIRIDANEXT } from './workflows/fetchdatairidanext'
 
 //
 // WORKFLOW: Run main phac-nml/iridanextexample analysis pipeline
 //
-workflow PHACNML_IRIDANEXT {
-    IRIDANEXT ()
+workflow PHACNML_FETCHDATAIRIDANEXT {
+    FETCHDATAIRIDANEXT ()
 }
 
 /*
@@ -59,7 +59,7 @@ workflow PHACNML_IRIDANEXT {
 // See: https://github.com/nf-core/rnaseq/issues/619
 //
 workflow {
-    PHACNML_IRIDANEXT ()
+    PHACNML_FETCHDATAIRIDANEXT ()
 }
 
 /*
