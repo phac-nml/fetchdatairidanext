@@ -53,6 +53,10 @@ jobs:
       - name: Run nf-test
         run: |
           nf-test test
+
+      - name: List test files
+        if: always()
+        run: |
           ls -laR .nf-test/tests/*/work/*
 
       - name: 'Upload nf-test log'
