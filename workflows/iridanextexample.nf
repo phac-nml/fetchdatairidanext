@@ -31,13 +31,6 @@ WorkflowIridanextexample.initialise(params, log)
 // SUBWORKFLOW: Consisting of a mix of local and nf-core/modules
 //
 include { FASTQ_DOWNLOAD_PREFETCH_FASTERQDUMP_SRATOOLS } from '../subworkflows/local/fastq_download_prefetch_fasterqdump_sratools'
-include { FFQ } from '../modules/nf-core/ffq/main'
-include { INPUT_CHECK          } from '../subworkflows/local/input_check'
-include { GENERATE_SAMPLE_JSON } from '../modules/local/generatesamplejson/main'
-include { SIMPLIFY_IRIDA_JSON  } from '../modules/local/simplifyiridajson/main'
-include { IRIDA_NEXT_OUTPUT    } from '../modules/local/iridanextoutput/main'
-include { ASSEMBLY_STUB        } from '../modules/local/assemblystub/main'
-include { GENERATE_SUMMARY     } from '../modules/local/generatesummary/main'
 
 /*
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -64,20 +57,12 @@ workflow IRIDANEXT {
     // NB: `input` corresponds to `params.input` and associated sample sheet schema
     input = Channel.fromSamplesheet("input")
     meta_accessions = input.map {meta -> tuple(["id": meta.id.first()], meta.run_accession.first())}
-    accessions = input.map {meta -> meta.run_accession.first()}.collect()
-    meta_accessions.view()
-    accessions.view()
 
     FASTQ_DOWNLOAD_PREFETCH_FASTERQDUMP_SRATOOLS (
         ch_sra_ids = meta_accessions,
         ch_dbgap_key = []
     )
     ch_versions = ch_versions.mix(FASTQ_DOWNLOAD_PREFETCH_FASTERQDUMP_SRATOOLS.out.versions)
-
-    FFQ (
-        accessions
-    )
-    ch_versions = ch_versions.mix(FFQ.out.versions)
 
     CUSTOM_DUMPSOFTWAREVERSIONS (
         ch_versions.unique().collectFile(name: 'collated_versions.yml')
