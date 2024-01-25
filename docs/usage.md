@@ -24,10 +24,10 @@ SAMPLE1,ERR1109373
 SAMPLE2,SRR13191702
 ```
 
-| Column    | Description |
-| --------- | ----------- |
-| `sample`  | A sample name which will be associated with downloaded reads. Samples should be unique within a samplesheet. |
-| `insdc_accession` | The accession (run accession) from one of the INSDC databases (NCBI, ENA, or DDBJ). |
+| Column            | Description                                                                                                  |
+| ----------------- | ------------------------------------------------------------------------------------------------------------ |
+| `sample`          | A sample name which will be associated with downloaded reads. Samples should be unique within a samplesheet. |
+| `insdc_accession` | The accession (run accession) from one of the INSDC databases (NCBI, ENA, or DDBJ).                          |
 
 An [example samplesheet](../assets/samplesheet.csv) has been provided with the pipeline.
 
@@ -39,7 +39,7 @@ The typical command for running the pipeline is as follows:
 nextflow run phac-nml/fetchdatairidanext -profile test,docker --outdir results
 ```
 
-This will launch the pipeline with the `docker` configuration profile  (use `singularity` for singularity profile). See below for more information about profiles.
+This will launch the pipeline with the `docker` configuration profile (use `singularity` for singularity profile). See below for more information about profiles.
 
 Note that the pipeline will create the following files in your working directory:
 

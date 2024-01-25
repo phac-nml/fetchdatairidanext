@@ -14,8 +14,9 @@ The input to the pipeline is a standard sample sheet (passed as `--input samples
 | SampleB | SRR13191702     |
 
 That is, there are two columns:
-* **sample**: The sample identifier downloaded read data should be associated with.
-* **insdc_accession**: The accession from the [International Sequence Data Collaboration (INSDC)][insdc] for the data to download (currently only sequence runs supported, e.g., starting with `SRR`, `ERR`, or `DRR`).
+
+- **sample**: The sample identifier downloaded read data should be associated with.
+- **insdc_accession**: The accession from the [International Sequence Data Collaboration (INSDC)][insdc] for the data to download (currently only sequence runs supported, e.g., starting with `SRR`, `ERR`, or `DRR`).
 
 The structure of this file is defined in [assets/schema_input.json](assets/schema_input.json). An example of this file is provided at [assets/samplesheet.csv](assets/samplesheet.csv).
 
@@ -68,15 +69,15 @@ A JSON file for loading the data into IRIDA Next is output by this pipeline. The
 
 ```json
 {
-    "files": {
-        "global": [],
-        "samples": {
-            "SampleA": [
-                {"path": "sratools/reads/SRR13191702_1.fastq.gz"},
-                {"path": "sratools/reads/SRR13191702_2.fastq.gz"}
-            ],
-        }
+  "files": {
+    "global": [],
+    "samples": {
+      "SampleA": [
+        { "path": "sratools/reads/SRR13191702_1.fastq.gz" },
+        { "path": "sratools/reads/SRR13191702_2.fastq.gz" }
+      ]
     }
+  }
 }
 ```
 
