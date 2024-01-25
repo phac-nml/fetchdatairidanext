@@ -9,7 +9,7 @@ The directories listed below will be created in the results directory after the 
 - `sratools`: Data from the SRA tools step (downloading sequence reads).
   - `sratools/reads`: The fastq files of downloaded reads.
 - `pipeline_info`: information about the pipeline's execution
-- `custom`:
+- `custom`: information on detected/generated NCBI settings used for accessing certain databases (see <https://nf-co.re/modules/custom_sratoolsncbisettings>).
 
 The IRIDA Next-compliant JSON output file will be named `iridanext.output.json.gz` and will be written to the top-level of the results directory. This file is compressed using GZIP and conforms to the [IRIDA Next JSON output specifications](https://github.com/phac-nml/pipeline-standards#42-irida-next-json).
 
