@@ -72,10 +72,7 @@ A JSON file for loading the data into IRIDA Next is output by this pipeline. The
   "files": {
     "global": [],
     "samples": {
-      "SampleA": [
-        { "path": "reads/SRR13191702_1.fastq.gz" },
-        { "path": "reads/SRR13191702_2.fastq.gz" }
-      ]
+      "SampleA": [{ "path": "reads/SRR13191702_1.fastq.gz" }, { "path": "reads/SRR13191702_2.fastq.gz" }]
     }
   }
 }
