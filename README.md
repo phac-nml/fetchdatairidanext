@@ -32,7 +32,7 @@ Other parameters (defaults from nf-core) are defined in [nextflow_schema.json](n
 To run the pipeline with test data, please do:
 
 ```bash
-nextflow run phac-nml/fetchdatairidanext -profile test,singularity --outdir results
+nextflow run phac-nml/fetchdatairidanext -profile test,docker --outdir results
 ```
 
 The downloaded data will appear in `results/`. A JSON file for integrating data with IRIDA Next will be written to `results/iridanext.output.json.gz` (see the [Output](#output) section for details).
@@ -42,7 +42,7 @@ The downloaded data will appear in `results/`. A JSON file for integrating data 
 To run the pipeline with other data (a custom samplesheet), please do:
 
 ```bash
-nextflow run phac-nml/fetchdatairidanext -profile singularity --input assets/samplesheet.csv --outdir results
+nextflow run phac-nml/fetchdatairidanext -profile docker --input assets/samplesheet.csv --outdir results
 ```
 
 Where the `samplesheet.csv` is structured as specified in the [Input](#input) section.
