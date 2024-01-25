@@ -16,7 +16,7 @@ You will need to create a samplesheet with information about the samples you wou
 
 The input samplesheet must contain two columns: `sample`, `insdc_accession`. The sample entries within a samplesheet should be unique. All other columns will be ignored.
 
-An exmaple samplesheet is shown below:
+An example samplesheet is shown below:
 
 ```console
 sample,insdc_accession
