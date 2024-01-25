@@ -85,6 +85,12 @@ Within the `files` section of this JSON file, all of the output paths are relati
 
 An additional example of this file can be found at [tests/data/test1_iridanext.output.json](tests/data/test1_iridanext.output.json).
 
+# Acknowledgements
+
+This pipeline makes use of the following subworkflow from [nf-core][nf-core]: [fastq_download_prefetch_fasterqdump_sratools](https://nf-co.re/subworkflows/fastq_download_prefetch_fasterqdump_sratools). Custom modifications to this workflow (and underlying modules) are found in the [subworkflows/local](subworkflows/local) and [modules/local](modules/local) directories.
+
+Other works this pipeline makes use of are found in the [CITATIONS.md](CITATIONS.md) file.
+
 # Legal
 
 Copyright 2024 Government of Canada
@@ -102,3 +108,4 @@ specific language governing permissions and limitations under the License.
 
 [irida-next]: https://github.com/phac-nml/irida-next
 [insdc]: https://www.insdc.org/
+[nf-core]: https://nf-co.re/
