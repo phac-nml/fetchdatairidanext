@@ -52,10 +52,10 @@ Where the `samplesheet.csv` is structured as specified in the [Input](#input) se
 
 ## Read data
 
-The sequence reads will appear in the `results/sratools/reads` directory (assuming `--outdir results` is specified). For example:
+The sequence reads will appear in the `results/reads` directory (assuming `--outdir results` is specified). For example:
 
 ```
-results/sratools/reads/
+results/reads/
 ├── ERR1109373.fastq.gz
 ├── ERR1109373_1.fastq.gz
 ├── ERR1109373_2.fastq.gz
@@ -73,15 +73,15 @@ A JSON file for loading the data into IRIDA Next is output by this pipeline. The
     "global": [],
     "samples": {
       "SampleA": [
-        { "path": "sratools/reads/SRR13191702_1.fastq.gz" },
-        { "path": "sratools/reads/SRR13191702_2.fastq.gz" }
+        { "path": "reads/SRR13191702_1.fastq.gz" },
+        { "path": "reads/SRR13191702_2.fastq.gz" }
       ]
     }
   }
 }
 ```
 
-Within the `files` section of this JSON file, all of the output paths are relative to the `--outdir results`. Therefore, `"path": "sratools/reads/SRR13191702_1.fastq.gz"` refers to a file located within `results/sratools/reads/SRR13191702_1.fastq.gz`.
+Within the `files` section of this JSON file, all of the output paths are relative to the `--outdir results`. Therefore, `"path": "reads/SRR13191702_1.fastq.gz"` refers to a file located within `sratools/reads/SRR13191702_1.fastq.gz`.
 
 An additional example of this file can be found at [tests/data/test1_iridanext.output.json](tests/data/test1_iridanext.output.json).
 

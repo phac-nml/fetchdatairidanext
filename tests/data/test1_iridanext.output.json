@@ -6,21 +6,21 @@
         "samples": {
             "SAMPLE2": [
                 {
-                    "path": "sratools/reads/SRR13191702_2.fastq.gz"
+                    "path": "reads/SRR13191702_2.fastq.gz"
                 },
                 {
-                    "path": "sratools/reads/SRR13191702_1.fastq.gz"
+                    "path": "reads/SRR13191702_1.fastq.gz"
                 }
             ],
             "SAMPLE1": [
                 {
-                    "path": "sratools/reads/ERR1109373_2.fastq.gz"
+                    "path": "reads/ERR1109373_2.fastq.gz"
                 },
                 {
-                    "path": "sratools/reads/ERR1109373_1.fastq.gz"
+                    "path": "reads/ERR1109373_1.fastq.gz"
                 },
                 {
-                    "path": "sratools/reads/ERR1109373.fastq.gz"
+                    "path": "reads/ERR1109373.fastq.gz"
                 }
             ]
         }

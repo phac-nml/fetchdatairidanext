@@ -7,7 +7,7 @@ This document describes the output produced by the pipeline.
 The directories listed below will be created in the results directory after the pipeline has finished. All paths are relative to the top-level results directory.
 
 - `sratools`: Data from the SRA tools step (downloading sequence reads).
-  - `sratools/reads`: The fastq files of downloaded reads.
+- `reads`: The fastq files of downloaded reads.
 - `pipeline_info`: information about the pipeline's execution
 - `custom`: information on detected/generated NCBI settings used for accessing certain databases (see <https://nf-co.re/modules/custom_sratoolsncbisettings>).
 
@@ -28,7 +28,8 @@ The pipeline is built using [Nextflow](https://www.nextflow.io/) and processes d
 
 - `sratools/`
   - Sequence data in SRA format: `INSDC_ACCESSION/INSDC_ACCESSION.sra`
-  - Reads in fastq format: `reads/INSDC_ACCESSION.fastq.gz`
+- `reads/`
+  - Reads in fastq format: `INSDC_ACCESSION.fastq.gz`
 
 </details>
 
