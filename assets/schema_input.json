@@ -16,7 +16,7 @@
             },
             "insdc_accession": {
                 "type": "string",
-                "pattern": "^(SRR|ERR)\\S+$",
+                "pattern": "^(SRR|ERR|DRR)\\S+$",
                 "meta": ["insdc_accession"],
                 "unique": true,
                 "errorMessage": "Must provide a valid accession"

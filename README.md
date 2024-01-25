@@ -15,7 +15,7 @@ The input to the pipeline is a standard sample sheet (passed as `--input samples
 
 That is, there are two columns:
 * **sample**: The sample identifier downloaded read data should be associated with.
-* **insdc_accession**: The accession from the [International Sequence Data Collaboration (INSDC)][insdc] for the data to download (currently only sequence runs supported, e.g., starting with `SRR` or `ERR`).
+* **insdc_accession**: The accession from the [International Sequence Data Collaboration (INSDC)][insdc] for the data to download (currently only sequence runs supported, e.g., starting with `SRR`, `ERR`, or `DRR`).
 
 The structure of this file is defined in [assets/schema_input.json](assets/schema_input.json). An example of this file is provided at [assets/samplesheet.csv](assets/samplesheet.csv).
 
