@@ -1,18 +1,19 @@
 {
     "workflow_params": {
-        "--input": "[SAMPLESHEET]",
-        "-r": "main"
+        "--input": "az://samplesheet.csv",
+        "-r": "1.0.0"
     },
-    "workflow_type": "DSL2",
-    "workflow_type_version": "22.10.7",
+    "workflow_type": "NFL",
+    "workflow_type_version": "DSL2",
+    "workflow_engine": "nextflow",
+    "workflow_engine_version": "23.10.0",
     "tags": {
         "createdBy": "TestUser",
         "group": "TestUserGroup"
     },
     "workflow_engine_parameters": {
-        "engine": "nextflow",
         "execute_loc": "azure"
     },
-    "workflow_url": "https://github.com/phac-nml/iridanextexample",
+    "workflow_url": "https://github.com/phac-nml/fetchdatairidanext",
     "workflow_attachment": ""
 }
