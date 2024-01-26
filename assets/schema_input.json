@@ -10,14 +10,15 @@
             "sample": {
                 "type": "string",
                 "pattern": "^\\S+$",
-                "meta": ["id"],
+                "meta": ["sample"],
                 "unique": true,
                 "errorMessage": "Sample name must be provided and cannot contain spaces"
             },
             "insdc_accession": {
                 "type": "string",
                 "pattern": "^(SRR|ERR|DRR)\\S+$",
-                "meta": ["insdc_accession"],
+                "unique": true,
+                "meta": ["accession"],
                 "errorMessage": "Must provide a valid accession"
             }
         },

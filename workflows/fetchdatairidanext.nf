@@ -56,7 +56,16 @@ workflow FETCHDATAIRIDANEXT {
     // Create a new channel of metadata from a sample sheet
     // NB: `input` corresponds to `params.input` and associated sample sheet schema
     input = Channel.fromSamplesheet("input")
-    meta_accessions = input.map {meta -> tuple(["id": meta.id.first()], meta.insdc_accession.first())}
+    meta_accessions = input.map {meta ->
+        if (meta.sample.size() != 1 || meta.accession.size() != 1) {
+            throw new Exception("Either meta.sample or meta.accession do not have size of 1: ${meta}")
+        }
+
+        tuple(
+            ["sample": meta.sample.first(), "id": "${meta.sample.first()}_${meta.accession.first()}"],
+            meta.accession.first()
+        )
+    }
 
     FASTQ_DOWNLOAD_PREFETCH_FASTERQDUMP_SRATOOLS (
         ch_sra_ids = meta_accessions,
