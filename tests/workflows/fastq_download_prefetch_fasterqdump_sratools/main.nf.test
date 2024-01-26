@@ -1,7 +1,7 @@
 nextflow_workflow {
 
     name "Test workflow: fastq_download_prefetch_fasterqdump_sratools/main.nf"
-    script "../main.nf"
+    script "subworkflows/local/fastq_download_prefetch_fasterqdump_sratools/main.nf"
     workflow "FASTQ_DOWNLOAD_PREFETCH_FASTERQDUMP_SRATOOLS"
     tag "subworkflow"
     tag "subworkflow_nfcore"
