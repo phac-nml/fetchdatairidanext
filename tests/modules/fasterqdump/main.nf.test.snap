@@ -1,0 +1,39 @@
+{
+    "Test fasterqdump ERR1109373": {
+        "content": [
+            {
+                "0": [
+                    [
+                        {
+                            "id": "SAMPLE1"
+                        },
+                        [
+                            "ERR1109373.fastq.gz:md5,b9acccb3c5d317a99f604375a09991aa",
+                            "ERR1109373_1.fastq.gz:md5,38e94cf16bf3d3b7d3a05a4c21b8fcc3",
+                            "ERR1109373_2.fastq.gz:md5,031a82c07f35c45ada5b6133b1181e68"
+                        ]
+                    ]
+                ],
+                "1": [
+                    "versions.yml:md5,a3d61a9761e1606ef8459f0b68821d7a"
+                ],
+                "reads": [
+                    [
+                        {
+                            "id": "SAMPLE1"
+                        },
+                        [
+                            "ERR1109373.fastq.gz:md5,b9acccb3c5d317a99f604375a09991aa",
+                            "ERR1109373_1.fastq.gz:md5,38e94cf16bf3d3b7d3a05a4c21b8fcc3",
+                            "ERR1109373_2.fastq.gz:md5,031a82c07f35c45ada5b6133b1181e68"
+                        ]
+                    ]
+                ],
+                "versions": [
+                    "versions.yml:md5,a3d61a9761e1606ef8459f0b68821d7a"
+                ]
+            }
+        ],
+        "timestamp": "2024-01-25T23:20:38.2550152"
+    }
+}
