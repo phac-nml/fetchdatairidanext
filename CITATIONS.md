@@ -1,4 +1,4 @@
-# phac-nml/iridanextexample: Citations
+# phac-nml/fetchdatairidanext: Citations
 
 ## [nf-core](https://pubmed.ncbi.nlm.nih.gov/32055031/)
 
@@ -8,7 +8,12 @@
 
 > Di Tommaso P, Chatzou M, Floden EW, Barja PP, Palumbo E, Notredame C. Nextflow enables reproducible computational workflows. Nat Biotechnol. 2017 Apr 11;35(4):316-319. doi: 10.1038/nbt.3820. PubMed PMID: 28398311.
 
+## [nf-test](https://www.nf-test.com/)
+
 ## Pipeline tools
+
+- [NCBI sra-tools](https://github.com/ncbi/sra-tools)
+- [nf-core fastq_download_prefetch_fasterqdump_sratools subworkflow](https://nf-co.re/subworkflows/fastq_download_prefetch_fasterqdump_sratools)
 
 ## Software packaging/containerisation tools
 
