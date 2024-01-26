@@ -19,10 +19,10 @@ nextflow_pipeline {
             assert path("$launchDir/test1_out/iridanext.output.json").json == path("$baseDir/tests/data/test1_iridanext.output.json").json
 
             // Output data
-            assert path("$launchDir/test1_out/reads/ERR1109373_1.fastq.gz").linesGzip.size() == 512
-            assert path("$launchDir/test1_out/reads/ERR1109373_2.fastq.gz").linesGzip.size() == 512
-            assert path("$launchDir/test1_out/reads/SRR13191702_1.fastq.gz").linesGzip.size() == 364
-            assert path("$launchDir/test1_out/reads/SRR13191702_2.fastq.gz").linesGzip.size() == 364
+            assert path("$launchDir/test1_out/reads/ERR1109373_sratools_1.fastq.gz").linesGzip.size() == 512
+            assert path("$launchDir/test1_out/reads/ERR1109373_sratools_2.fastq.gz").linesGzip.size() == 512
+            assert path("$launchDir/test1_out/reads/SRR13191702_sratools_1.fastq.gz").linesGzip.size() == 364
+            assert path("$launchDir/test1_out/reads/SRR13191702_sratools_2.fastq.gz").linesGzip.size() == 364
         }
     }
 }

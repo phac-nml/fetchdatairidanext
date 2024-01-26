@@ -62,7 +62,7 @@ workflow FETCHDATAIRIDANEXT {
         }
 
         tuple(
-            ["sample": meta.sample.first(), "id": "${meta.sample.first()}_${meta.accession.first()}"],
+            ["sample": meta.sample.first(), "id": "${meta.accession.first()}_sratools"],
             meta.accession.first()
         )
     }
