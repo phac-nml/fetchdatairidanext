@@ -84,7 +84,17 @@ An additional example of this file can be found at [tests/data/test1_iridanext.o
 
 # Acknowledgements
 
-This pipeline makes use of the following subworkflow from nf-core: [fastq_download_prefetch_fasterqdump_sratools](https://nf-co.re/subworkflows/fastq_download_prefetch_fasterqdump_sratools). Custom modifications to this workflow (and underlying modules) are found in the [subworkflows/local](subworkflows/local) and [modules/local](modules/local) directories.
+This pipeline uses code and infrastructure developed and maintained by the [nf-core][nf-core] initative, and reused here under the [MIT license](https://github.com/nf-core/tools/blob/master/LICENSE).
+ 
+> The nf-core framework for community-curated bioinformatics pipelines.
+>
+> Philip Ewels, Alexander Peltzer, Sven Fillinger, Harshil Patel, Johannes Alneberg, Andreas Wilm, Maxime Ulysse Garcia, Paolo Di Tommaso & Sven Nahnsen.
+>
+> Nat Biotechnol. 2020 Feb 13. doi: 10.1038/s41587-020-0439-x.
+ 
+In addition, references of tools and data used in this pipeline are as follows:
+
+* The [fastq_download_prefetch_fasterqdump_sratools](https://nf-co.re/subworkflows/fastq_download_prefetch_fasterqdump_sratools) subworkflow from nf-core. Custom modifications to this workflow (and underlying modules) are found in the [subworkflows/local](subworkflows/local) and [modules/local](modules/local) directories.
 
 Other works this pipeline makes use of are found in the [CITATIONS.md](CITATIONS.md) file.
 
@@ -105,3 +115,4 @@ specific language governing permissions and limitations under the License.
 
 [irida-next]: https://github.com/phac-nml/irida-next
 [insdc]: https://www.insdc.org/
+[nf-core]: https://nf-co.re/
