@@ -16,5 +16,3 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Added
 
 - Initial release of fetchdatairidanext pipeline which will download reads from NCBI/INSDC archives.
-
-
