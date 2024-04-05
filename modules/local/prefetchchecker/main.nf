@@ -9,10 +9,7 @@ process PREFETCH_CHECKER {
     path("failures_report.csv"), emit: failure_report
 
     exec:
-    def failure_report_path = [task.workDir, "failures_report.csv"].join(File.separator)
-    println failure_report_path
-    ///*
-    new File(failure_report_path).withWriter { writer ->
+    task.workDir.resolve("failures_report.csv").withWriter { writer ->
         // Failures
         if (failures.size() > 0) {
             failures.each { writer.writeLine "${it[0].id},${it[1]}" }
@@ -23,5 +20,4 @@ process PREFETCH_CHECKER {
             writer.write("")  // create the file by writing an empty line
         }
     }
-    //*/
 }
