@@ -5,12 +5,23 @@ process PREFETCH_CHECKER {
     input:
     val failures  // list of failures
 
-    exec:
-    def error_message = "Some samples failed to download!"
+    output:
+    path("failures_report.csv"), emit: failure_report
 
-    if (failures.size() > 0) {
-        failures.each { error_message += "\n\tFAILED: ${it[0].id} -- ${it[1]}" }
-        error_message += "\n"
-        error error_message
+    exec:
+    def failure_report_path = [task.workDir, "failures_report.csv"].join(File.separator)
+    println failure_report_path
+    ///*
+    new File(failure_report_path).withWriter { writer ->
+        // Failures
+        if (failures.size() > 0) {
+            failures.each { writer.writeLine "${it[0].id},${it[1]}" }
+        }
+        // No failures
+        else
+        {
+            writer.write("")  // create the file by writing an empty line
+        }
     }
+    //*/
 }
