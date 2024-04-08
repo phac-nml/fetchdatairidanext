@@ -11,7 +11,7 @@ lint:
     - lib/Utils.groovy
     - lib/WorkflowMain.groovy
     - lib/NfcoreTemplate.groovy
-    - lib/WorkflowIridanextexample.groovy
+    - lib/WorkflowFetchdatairidanext.groovy
   files_unchanged:
     - assets/sendmail_template.txt
     - assets/email_template.html
