@@ -34,4 +34,34 @@ nextflow_workflow {
             )
         }
     }
+
+    test("Download errors: 403") {
+
+        when {
+            workflow {
+                """
+                input[0] = Channel.of(
+                    [[ id:'SAMPLE1', single_end:false ], 'ERR1109373'],
+                    [[ id:'ERROR1', single_end:false ], 'SRR999908'],
+                    [[ id:'ERROR2', single_end:false ], 'SRR999934'],
+                    [[ id:'SAMPLE2', single_end:false ], 'SRR13191702']
+                )
+                input[1] = []
+                """
+            }
+            params {
+                outdir = "output"
+            }
+        }
+
+        then {
+            assert workflow.success
+            assert path("$launchDir/output").exists()
+
+            def lines = path("$launchDir/output/prefetch/failures_report.csv").readLines()
+            assert lines.contains("ERROR1,SRR999908")
+            assert lines.contains("ERROR2,SRR999934")
+        }
+    }
+
 }
