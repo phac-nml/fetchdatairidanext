@@ -1,7 +1,9 @@
 {
     "files": {
         "global": [
-            
+            {
+                "path": "prefetch/failures_report.csv"
+            }
         ],
         "samples": {
             "SAMPLE2": [
