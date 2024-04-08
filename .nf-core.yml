@@ -8,6 +8,10 @@ lint:
     - .github/workflows/awstest.yml
     - .github/workflows/awsfulltest.yml
     - CODE_OF_CONDUCT.md
+    - lib/Utils.groovy
+    - lib/WorkflowMain.groovy
+    - lib/NfcoreTemplate.groovy
+    - lib/WorkflowIridanextexample.groovy
   files_unchanged:
     - assets/sendmail_template.txt
     - assets/email_template.html
