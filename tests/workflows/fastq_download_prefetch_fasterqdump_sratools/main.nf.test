@@ -32,6 +32,12 @@ nextflow_workflow {
                 { assert workflow.success },
                 { assert snapshot(workflow.out).match() }
             )
+
+            assert path("$launchDir/output").exists()
+
+            def lines = path("$launchDir/output/prefetch/failures_report.csv").readLines()
+            assert lines.contains("test_single_end,DRR000774").equals(false)
+            assert lines.contains("test_paired_end,SRR11140744").equals(false)
         }
     }
 
