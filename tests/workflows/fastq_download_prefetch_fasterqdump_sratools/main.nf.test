@@ -37,7 +37,7 @@ nextflow_workflow {
 
             def lines = path("$launchDir/output/prefetch/failures_report.csv").readLines()
             assert lines.size() == 1
-            assert lines.contains("sample,insdc_accession")
+            assert lines.contains("sample,error_accession")
             assert lines.contains("test_single_end,DRR000774").equals(false)
             assert lines.contains("test_paired_end,SRR11140744").equals(false)
         }
@@ -68,7 +68,7 @@ nextflow_workflow {
 
             def lines = path("$launchDir/output/prefetch/failures_report.csv").readLines()
             assert lines.size() == 3
-            assert lines.contains("sample,insdc_accession")
+            assert lines.contains("sample,error_accession")
             assert lines.contains("ERROR1,SRR999908")
             assert lines.contains("ERROR2,INVALID!!")
         }

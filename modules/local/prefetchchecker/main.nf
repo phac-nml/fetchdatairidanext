@@ -11,7 +11,7 @@ process PREFETCH_CHECKER {
     exec:
     task.workDir.resolve("failures_report.csv").withWriter { writer ->
 
-        writer.writeLine("sample,insdc_accession")  // header
+        writer.writeLine("sample,error_accession")  // header
 
         // Failures
         if (failures.size() > 0) {
