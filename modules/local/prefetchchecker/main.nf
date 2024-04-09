@@ -10,14 +10,12 @@ process PREFETCH_CHECKER {
 
     exec:
     task.workDir.resolve("failures_report.csv").withWriter { writer ->
+
+        writer.write("sample,insdc_accession")  // header
+
         // Failures
         if (failures.size() > 0) {
             failures.each { writer.writeLine "${it[0].id},${it[1]}" }
-        }
-        // No failures
-        else
-        {
-            writer.write("")  // create the file by writing an empty line
         }
     }
 }
