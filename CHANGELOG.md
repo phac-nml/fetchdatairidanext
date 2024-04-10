@@ -5,7 +5,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [1.1.0] - 2024-04-10
 
-- Added the ability to handle individual download errors. These errors will be reported in `prefetch/failures_report.csv`.
+### Added
+
+- The ability to handle individual download errors. These errors will be reported in `prefetch/failures_report.csv`.
 
 ## [1.0.1] - 2024-02-22
 
