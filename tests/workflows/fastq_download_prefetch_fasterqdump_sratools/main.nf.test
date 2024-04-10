@@ -32,6 +32,46 @@ nextflow_workflow {
                 { assert workflow.success },
                 { assert snapshot(workflow.out).match() }
             )
+
+            assert path("$launchDir/output").exists()
+
+            def lines = path("$launchDir/output/prefetch/failures_report.csv").readLines()
+            assert lines.size() == 1
+            assert lines.contains("sample,error_accession")
+            assert lines.contains("test_single_end,DRR000774").equals(false)
+            assert lines.contains("test_paired_end,SRR11140744").equals(false)
         }
     }
+
+    test("Download errors: 403 and invalid") {
+
+        when {
+            workflow {
+                """
+                input[0] = Channel.of(
+                    [[ id:'SAMPLE1', single_end:false ], 'ERR1109373'],
+                    [[ id:'ERROR1', single_end:false ], 'SRR999908'],
+                    [[ id:'ERROR2', single_end:false ], 'INVALID!!'],
+                    [[ id:'SAMPLE2', single_end:false ], 'SRR13191702']
+                )
+                input[1] = []
+                """
+            }
+            params {
+                outdir = "output"
+            }
+        }
+
+        then {
+            assert workflow.success
+            assert path("$launchDir/output").exists()
+
+            def lines = path("$launchDir/output/prefetch/failures_report.csv").readLines()
+            assert lines.size() == 3
+            assert lines.contains("sample,error_accession")
+            assert lines.contains("ERROR1,SRR999908")
+            assert lines.contains("ERROR2,INVALID!!")
+        }
+    }
+
 }

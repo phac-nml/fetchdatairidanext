@@ -82,6 +82,18 @@ Within the `files` section of this JSON file, all of the output paths are relati
 
 An additional example of this file can be found at [tests/data/test1_iridanext.output.json](tests/data/test1_iridanext.output.json).
 
+## Failures
+
+If one or more samples fail to download, the workflow will still attempt to download all other samples in the samplesheet. The samples that fail to download will be reported in a file named `results/prefetch/failures_report.csv`. This CSV file has two columns: `sample` (the name of the sample, matching the input samplesheet) and `error_accession` (the accession that failed to download).
+
+For example:
+
+```
+sample,error_accession
+ERROR1,SRR999908
+ERROR2,SRR999934
+```
+
 # Acknowledgements
 
 This pipeline uses code and infrastructure developed and maintained by the [nf-core][nf-core] initative, and reused here under the [MIT license](https://github.com/nf-core/tools/blob/master/LICENSE).

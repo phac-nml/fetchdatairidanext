@@ -1,5 +1,6 @@
 include { CUSTOM_SRATOOLSNCBISETTINGS } from '../../../modules/nf-core/custom/sratoolsncbisettings/main'
 include { SRATOOLS_PREFETCH           } from '../../../modules/nf-core/sratools/prefetch/main'
+include { PREFETCH_CHECKER            } from '../../../modules/local/prefetchchecker/main'
 include { SRATOOLS_FASTERQDUMP        } from '../../../modules/local/sratools/fasterqdump/main'
 
 //
@@ -26,6 +27,12 @@ workflow FASTQ_DOWNLOAD_PREFETCH_FASTERQDUMP_SRATOOLS {
     //
     SRATOOLS_PREFETCH ( ch_sra_ids, ch_ncbi_settings, ch_dbgap_key )
     ch_versions = ch_versions.mix(SRATOOLS_PREFETCH.out.versions.first())
+
+    fetches = ch_sra_ids.join(SRATOOLS_PREFETCH.out.sra, remainder: true)
+    failed_fetches = fetches.filter { it[2] == null }
+                            .toList()
+
+    PREFETCH_CHECKER (failed_fetches)
 
     //
     // Convert the SRA format into one or more compressed FASTQ files.
