@@ -1,6 +1,6 @@
 process PREFETCH_CHECKER {
     tag "prefetch_checker"
-    label 'process_low'
+    label 'process_single'
 
     input:
     val failures  // list of failures
