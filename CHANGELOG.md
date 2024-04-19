@@ -9,7 +9,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Changed
 
-- Switched resource label for **prefetchchecker** from `process_low` to `process_single`.
+- Switched the resource label for **prefetchchecker** from `process_low` to `process_single`.
 
 ## [1.1.0] - 2024-04-10
 
