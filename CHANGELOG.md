@@ -3,6 +3,15 @@
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.1.1] - 2024-04-19
+
+### Added
+
+### Changed
+
+- Switched the resource label for **prefetchchecker** from `process_low` to `process_single`.
+- Switched GitHub continuous integration to test against at most Nextflow `23.10.1` (due to differences in outputs with later Nextflow pre-releases).
+
 ## [1.1.0] - 2024-04-10
 
 ### Added
