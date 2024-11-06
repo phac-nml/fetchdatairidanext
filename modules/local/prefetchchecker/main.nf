@@ -11,11 +11,19 @@ process PREFETCH_CHECKER {
     exec:
     task.workDir.resolve("failures_report.csv").withWriter { writer ->
 
-        writer.writeLine("sample,error_accession")  // header
+        sample_name = false
+        failures.each { if ( it[0].id != null) {
+            sample_name = true
+        }
+        }
 
         // Failures
-        if (failures.size() > 0) {
-            failures.each { writer.writeLine "${it[0].id},${it[1]}" }
+        if (failures.size() > 0 && sample_name) {
+            writer.writeLine("sample,sample_name,error_accession")  // header
+            failures.each { writer.writeLine "${it[0].irida_id},${it[0].id},${it[1]}" }
+        } else {
+            writer.writeLine("sample,error_accession")  // header
+            failures.each { writer.writeLine "${it[0].irida_id},${it[1]}" }
         }
     }
 }

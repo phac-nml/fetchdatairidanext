@@ -54,4 +54,25 @@ nextflow_pipeline {
             assert path("$launchDir/results/reads/SRR999934_2.fastq.gz").exists() == false
         }
     }
+
+    test("Include sample_name in samplesheet") {
+        tag "sample_name"
+        when {
+            params {
+                input = "$baseDir/tests/data/add-samplesheet.csv"
+                outdir = "output"
+            }
+        }
+
+        then {
+            assert workflow.success
+            assert path("$launchDir/output").exists()
+
+            def lines = path("$launchDir/output/prefetch/failures_report.csv").readLines()
+            assert lines.size() == 3
+            assert lines.contains("sample,sample_name,error_accession")
+            assert lines.contains("ERROR1,S2,SRR999908")
+            assert lines.contains("ERROR2,S3,INVALID!!")
+        }
+    }
 }
