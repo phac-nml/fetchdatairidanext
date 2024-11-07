@@ -72,7 +72,7 @@ nextflow_pipeline {
             assert lines.size() == 3
             assert lines.contains("sample,sample_name,error_accession")
             assert lines.contains("ERROR1,S2,SRR999908")
-            assert lines.contains("ERROR2,S3,INVALID!!")
+            assert lines.contains("ERROR2,S3,SRR999934")
         }
     }
 }
