@@ -67,12 +67,18 @@ nextflow_pipeline {
         then {
             assert workflow.success
             assert path("$launchDir/output").exists()
-
+            // Check that the failures report has a sample_name column when included in the samplesheet
             def lines = path("$launchDir/output/prefetch/failures_report.csv").readLines()
             assert lines.size() == 3
             assert lines.contains("sample,sample_name,error_accession")
             assert lines.contains("ERROR1,S2,SRR999908")
             assert lines.contains("ERROR2,S3,SRR999934")
+
+            // Check reads have been produced with modified names (i.e. suffixed with sample_name):
+            assert path("$launchDir/output/reads/S1_ERR1109373_1.fastq.gz").exists()
+            assert path("$launchDir/output/reads/S1_ERR1109373_2.fastq.gz").exists()
+            assert path("$launchDir/output/reads/S4_SRR13191702_1.fastq.gz").exists()
+            assert path("$launchDir/output/reads/S4_SRR13191702_2.fastq.gz").exists()
         }
     }
 }
