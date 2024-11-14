@@ -8,12 +8,16 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### `Changed`
 
 - Modified the template for input csv file to include a `sample_name` column in addition to `sample` in-line with changes to [IRIDA-Next update] as seen with the [speciesabundance pipeline]
+  - If `sample_name` is supplied, then the reads will have `sample_name` prefixed before the accession code
   - `sample_name` special characters will be replaced with `"_"`
-  - If no `sample_name` is supplied in the column `sample` will be used
-  - To avoid repeat values for `sample_name` all `sample_name` values will be suffixed with the unique `sample` value from the input file
+- Reverted `fasterq-dump` version to 2.11.0 from 3.0.8 due to [issue #865]. Solution proposed by `fetchngs` in [PR #261]
+- Fixed linting issues in CI caused by `nf-core` 3.0.1
+- Updated `nf-test` snapshots and added new tests for `sample_name` feature
 
 [IRIDA-Next update]: https://github.com/phac-nml/irida-next/pull/678
 [speciesabundance pipeline]: https://github.com/phac-nml/speciesabundance/pull/24
+[issue #865]: https://github.com/ncbi/sra-tools/issues/865
+[PR #261]: https://github.com/nf-core/fetchngs/pull/261
 
 ## [1.1.1] - 2024-04-19
 
@@ -41,3 +45,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Added
 
 - Initial release of fetchdatairidanext pipeline which will download reads from NCBI/INSDC archives.
+
+[1.2.0]: https://github.com/phac-nml/fetchdatairidanext/releases/tag/1.2.0
+[1.1.1]: https://github.com/phac-nml/fetchdatairidanext/releases/tag/1.1.1
+[1.1.0]: https://github.com/phac-nml/fetchdatairidanext/releases/tag/1.1.0
+[1.0.1]: https://github.com/phac-nml/fetchdatairidanext/releases/tag/1.0.1
+[1.0.0]: https://github.com/phac-nml/fetchdatairidanext/releases/tag/1.0.0
