@@ -43,11 +43,11 @@
         "additional_parameters": {
             "title": "Additional Parameters",
             "type": "object",
-            "description": "IRIDA-Next Parameters",
             "default": "",
             "properties": {
                 "rename_with_samplename": {
                     "type": "boolean",
+                    "description": "Filenames for reads will have 'SAMPLE_NAME' prefixed to 'INSDC_ACCESSION' (True)",
                     "default": true
                 }
             }
