@@ -214,5 +214,11 @@
         {
             "$ref": "#/definitions/generic_options"
         }
-    ]
+    ],
+    "properties": {
+        "rename_with_samplename": {
+            "type": "boolean",
+            "default": true
+        }
+    }
 }
