@@ -43,11 +43,11 @@ SAMPLE1,S1,ERR1109373
 SAMPLE2,,SRR13191702
 ```
 
-| Column            | Description                                                                                                  |
-| ----------------- | -----------------------------------------------------------------------------------------------------------  |
-| `sample`          | Custom sample name. Samples should be unique within a samplesheet.                                                                                                                       |
-| `sample_name`     | Provides custom prefix to read filenames                                                                     |
-| `insdc_accession` | The accession (run accession) from one of the INSDC databases (NCBI, ENA, or DDBJ).                          |
+| Column            | Description                                                                         |
+| ----------------- | ----------------------------------------------------------------------------------- |
+| `sample`          | Custom sample name. Samples should be unique within a samplesheet.                  |
+| `sample_name`     | Provides custom prefix to read filenames                                            |
+| `insdc_accession` | The accession (run accession) from one of the INSDC databases (NCBI, ENA, or DDBJ). |
 
 An [example samplesheet](tests/data/samplesheets/samplesheet-sample_name.csv) has been provided with the pipeline.
 
