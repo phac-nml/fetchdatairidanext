@@ -56,10 +56,19 @@ workflow FETCHDATAIRIDANEXT {
     // Create a new channel of metadata from a sample sheet
     // NB: `input` corresponds to `params.input` and associated sample sheet schema
     input = Channel.fromSamplesheet("input")
-    meta_accessions = input.map {meta -> tuple(["id": meta.id.first(), "irida_id": meta.irida_id.first(), "insdc_accession": meta.insdc_accession.first()], meta.insdc_accession.first())}
+    // and remove non-alphanumeric characters in sample_names (meta.id)
+        .map { meta ->
+            if (meta.id[0]) {
+                    // Non-alphanumeric characters (excluding _,-,.) will be replaced with "_"
+                new_id = meta.id[0].replaceAll(/[^A-Za-z0-9_\.\-]/, '_') // meta.id appears to be an immutable list, the workaround is to create a new variable
+            } else {
+                new_id = meta.id[0]
+            }
+            return [["id": new_id, "irida_id": meta.irida_id[0], "insdc_accession": meta.insdc_accession[0]], meta.insdc_accession[0]]
+        }
 
     FASTQ_DOWNLOAD_PREFETCH_FASTERQDUMP_SRATOOLS (
-        ch_sra_ids = meta_accessions,
+        ch_sra_ids = input,
         ch_dbgap_key = []
     )
     ch_versions = ch_versions.mix(FASTQ_DOWNLOAD_PREFETCH_FASTERQDUMP_SRATOOLS.out.versions)
