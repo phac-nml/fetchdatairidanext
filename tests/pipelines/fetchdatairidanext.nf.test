@@ -1,0 +1,57 @@
+nextflow_pipeline {
+
+    name "Test fetching small datasets from NCBI"
+    script "main.nf"
+
+    test("basic integration test") {
+
+        when {
+            params {
+                input = "$baseDir/tests/data/samplesheet.csv"
+                outdir = "test1_out"
+            }
+        }
+
+        then {
+            assert workflow.success
+
+            // IRIDA Next output file
+            assert path("$launchDir/test1_out/iridanext.output.json").json == path("$baseDir/tests/data/test1_iridanext.output.json").json
+
+            // Output data
+            assert path("$launchDir/test1_out/reads/ERR1109373_1.fastq.gz").linesGzip.size() == 512
+            assert path("$launchDir/test1_out/reads/ERR1109373_2.fastq.gz").linesGzip.size() == 512
+            assert path("$launchDir/test1_out/reads/SRR13191702_1.fastq.gz").linesGzip.size() == 364
+            assert path("$launchDir/test1_out/reads/SRR13191702_2.fastq.gz").linesGzip.size() == 364
+        }
+    }
+
+    test("integration test with prefetch failures") {
+
+        when {
+            params {
+                input = "$baseDir/tests/data/errorsheet.csv"
+                outdir = "results"
+            }
+        }
+
+        then {
+            assert workflow.success
+
+            // IRIDA Next output file
+            assert path("$launchDir/results/iridanext.output.json").json == path("$baseDir/tests/data/prefetch_errors_iridanext.output.json").json
+
+            // Output data:
+            assert path("$launchDir/results/reads/ERR1109373_1.fastq.gz").linesGzip.size() == 512
+            assert path("$launchDir/results/reads/ERR1109373_2.fastq.gz").linesGzip.size() == 512
+            assert path("$launchDir/results/reads/SRR13191702_1.fastq.gz").linesGzip.size() == 364
+            assert path("$launchDir/results/reads/SRR13191702_2.fastq.gz").linesGzip.size() == 364
+
+            // These files should have failed, and have no output reads:
+            assert path("$launchDir/results/reads/SRR999908_1.fastq.gz").exists() == false
+            assert path("$launchDir/results/reads/SRR999908_2.fastq.gz").exists() == false
+            assert path("$launchDir/results/reads/SRR999934_1.fastq.gz").exists() == false
+            assert path("$launchDir/results/reads/SRR999934_2.fastq.gz").exists() == false
+        }
+    }
+}
