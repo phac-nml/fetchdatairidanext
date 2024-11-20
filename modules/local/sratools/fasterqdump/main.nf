@@ -22,6 +22,7 @@ process SRATOOLS_FASTERQDUMP {
     script:
     def args = task.ext.args ?: ''
     def args2 = task.ext.args2 ?: ''
+    def args3 = task.ext.args3 ?: ''
     def prefix = task.ext.prefix ?: "${meta.id}"
     def key_file = ''
 
@@ -46,8 +47,10 @@ process SRATOOLS_FASTERQDUMP {
         ${key_file} \\
         ${sra}
 
+    find reads/ -type f   -name "$args2" -exec mv {} {}.fastq \\;
+
     pigz \\
-        $args2 \\
+        $args3 \\
         --no-name \\
         --processes $task.cpus \\
         reads/*.fastq
