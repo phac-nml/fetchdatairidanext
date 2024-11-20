@@ -24,8 +24,8 @@ nextflow_workflow {
             def iridanext_json = path("$launchDir/output/iridanext.output.json").json
             def iridanext_samples = iridanext_json.files.samples
 
-            assert iridanext_samples.SAMPLE1 == [['path':'reads/S_1_ERR1109373_2.fastq.gz'], ['path':'reads/S_1_ERR1109373_1.fastq.gz']]
-            assert iridanext_samples.SAMPLE2 == [['path':'reads/S2_ERR1109373_2.fastq.gz'], ['path':'reads/S2_ERR1109373_1.fastq.gz']]
+            assert iridanext_samples.SAMPLE1 == [['path':'reads/S_1_ERR1109373_2.fastq.gz'], ['path':'reads/S_1_ERR1109373_1.fastq.gz'], ['path':'reads/S_1_ERR1109373.fastq.gz']]
+            assert iridanext_samples.SAMPLE2 == [['path':'reads/S2_ERR1109373_2.fastq.gz'], ['path':'reads/S2_ERR1109373_1.fastq.gz'], ['path':'reads/S2_ERR1109373.fastq.gz']]
             assert iridanext_samples.SAMPLE3 == [['path':'reads/S2_SRR13191702_2.fastq.gz'], ['path':'reads/S2_SRR13191702_1.fastq.gz']]
             assert iridanext_samples.SAMPLE4 == [['path':'reads/SRR13191702_2.fastq.gz'], ['path':'reads/SRR13191702_1.fastq.gz']]
 
