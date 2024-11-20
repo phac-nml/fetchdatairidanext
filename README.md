@@ -24,7 +24,7 @@ The structure of this file is defined in [assets/schema_input.json](assets/schem
 
 `fetchdatairidanext` accepts the [IRIDA-Next](https://github.com/phac-nml/irida-next) format for samplesheets which can contain an additional column: `sample_name`
 
-`sample_name`: An **optional** column, to allow for an override the default reads name with a `sample_name` prefix before the accession code.
+`sample_name`: An **optional** column, to add the `sample_name` prefix before the accession code.
 
 `sample_name`, allows more flexibility in naming reads. Unlike `sample`, `sample_name` is not required to contain unique values. Non-alphanumeric characters (excluding `_`,`-`,`.`) will be replaced with `"_"`. `sample_name` can be provided without renaming by changing parameters.
 
