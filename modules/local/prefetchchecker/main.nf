@@ -12,8 +12,9 @@ process PREFETCH_CHECKER {
     task.workDir.resolve("failures_report.csv").withWriter { writer ->
 
         sample_name = false
-        failures.each { if ( it[0].id != null) {
-            sample_name = true
+        failures.each {
+            if ( it[0].id != null) {
+                sample_name = true
         }
         }
 
