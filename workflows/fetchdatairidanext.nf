@@ -58,12 +58,7 @@ workflow FETCHDATAIRIDANEXT {
     input = Channel.fromSamplesheet("input")
     // and remove non-alphanumeric characters in sample_names (meta.id)
         .map { meta ->
-            if (meta.id[0]) {
-                    // Non-alphanumeric characters (excluding _,-,.) will be replaced with "_"
-                new_id = meta.id[0].replaceAll(/[^A-Za-z0-9_\.\-]/, '_') // meta.id appears to be an immutable list, the workaround is to create a new variable
-            } else {
-                new_id = meta.id[0]
-            }
+            def new_id = meta.id[0]?.replaceAll(/[^A-Za-z0-9_\.\-]/, '_') ?: meta.id[0]
             return [["id": new_id, "irida_id": meta.irida_id[0], "insdc_accession": meta.insdc_accession[0]], meta.insdc_accession[0]]
         }
 
