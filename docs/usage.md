@@ -154,7 +154,7 @@ Specify the path to a specific config file (this is a core Nextflow command). Se
 
 ### `--rename_with_samplename`
 
-When `sample_name` is included in samplesheet will add prefix to read filenames (Default: true)
+When `sample_name` is included in the sample sheet, it will be prefixed to read filenames (Default: true)
 
 ## Custom configuration
 
