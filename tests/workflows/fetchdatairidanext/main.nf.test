@@ -1,0 +1,36 @@
+nextflow_workflow {
+
+    name "Test workflow: workflows/fetchdatairidanext.nf"
+    script "workflows/fetchdatairidanext.nf"
+    workflow "FETCHDATAIRIDANEXT"
+    tag "full workflow"
+    tag "fetchdatairdanext"
+
+    test("Samplesheets with sample_name") {
+        tag "sample_name"
+        when {
+            params {
+                input = "$baseDir/tests/data/add-samplesheet.csv"
+                outdir = "output"
+            }
+        }
+
+        then {
+            assert workflow.success
+            assert path("$launchDir/output").exists()
+
+            // Check that reads have the correct filename when supplying a sample_name
+            assert path("$launchDir/output/iridanext.output.json").exists()
+            def iridanext_json = path("$launchDir/output/iridanext.output.json").json
+            def iridanext_samples = iridanext_json.files.samples
+
+            assert iridanext_samples.SAMPLE1 == [['path':'reads/S_1_ERR1109373_2.fastq.gz'], ['path':'reads/S_1_ERR1109373_1.fastq.gz'], ['path':'reads/S_1_ERR1109373.fastq.gz']]
+            assert iridanext_samples.SAMPLE2 == [['path':'reads/S2_ERR1109373_2.fastq.gz'], ['path':'reads/S2_ERR1109373_1.fastq.gz'], ['path':'reads/S2_ERR1109373.fastq.gz']]
+            assert iridanext_samples.SAMPLE3 == [['path':'reads/S2_SRR13191702_2.fastq.gz'], ['path':'reads/S2_SRR13191702_1.fastq.gz']]
+            assert iridanext_samples.SAMPLE4 == [['path':'reads/SRR13191702_2.fastq.gz'], ['path':'reads/SRR13191702_1.fastq.gz']]
+
+
+        }
+    }
+
+}

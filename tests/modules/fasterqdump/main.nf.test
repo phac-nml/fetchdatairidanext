@@ -11,8 +11,8 @@ nextflow_process {
         when {
             process {
                 """
-                input[0] = Channel.of([ [id: "SAMPLE1"], file("$baseDir/tests/data/ERR1109373.sra", checkIfExists: true) ])
-                input[1] = []
+                input[0] = Channel.of([ [irida_id: "SAMPLE1"], file("$baseDir/tests/data/ERR1109373.sra", checkIfExists: true) ])
+                input[1] = file('$baseDir/tests/data/ncbi_user_settings.mkfg', checkIfExists: true)
                 input[2] = []
                 """
             }

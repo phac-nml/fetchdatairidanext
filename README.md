@@ -20,9 +20,21 @@ That is, there are two columns:
 
 The structure of this file is defined in [assets/schema_input.json](assets/schema_input.json). An example of this file is provided at [assets/samplesheet.csv](assets/samplesheet.csv).
 
+## IRIDA-Next Optional Input Configuration
+
+`fetchdatairidanext` accepts the [IRIDA-Next](https://github.com/phac-nml/irida-next) format for samplesheets which can contain an additional column: `sample_name`
+
+`sample_name`: An **optional** column, to add the `sample_name` prefix before the accession code.
+
+`sample_name`, allows more flexibility in naming reads. Unlike `sample`, `sample_name` is not required to contain unique values. Non-alphanumeric characters (excluding `_`,`-`,`.`) will be replaced with `"_"`. `sample_name` can be provided without renaming by changing parameters.
+
+An [example samplesheet](tests/data/samplesheets/samplesheet-sample_name.csv) has been provided with the pipeline.
+
 # Parameters
 
 The main parameters are `--input` as defined above and `--output` for specifying the output results directory. You may wish to provide `-profile singularity` to specify the use of singularity containers (or `-profile docker` for docker) and `-r [branch]` to specify which GitHub branch you would like to run.
+
+`--rename_with_samplename` (Default: `true`) When `false`, samplesheet column `sample_name` not used for reads-renaming.
 
 Other parameters (defaults from nf-core) are defined in [nextflow_schema.json](nextflow_schema.json).
 
