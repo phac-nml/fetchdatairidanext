@@ -34,7 +34,7 @@ An [example samplesheet](tests/data/samplesheets/samplesheet-sample_name.csv) ha
 
 The main parameters are `--input` as defined above and `--output` for specifying the output results directory. You may wish to provide `-profile singularity` to specify the use of singularity containers (or `-profile docker` for docker) and `-r [branch]` to specify which GitHub branch you would like to run.
 
-`--rename_with_samplename` (Default: `true`) can changed to `false` to override reads renaming when `sample_name` provided in samplesheet input
+`--rename_with_samplename` (Default: `true`) When `false`, samplesheet column `sample_name` not used for reads-renaming.
 
 Other parameters (defaults from nf-core) are defined in [nextflow_schema.json](nextflow_schema.json).
 
