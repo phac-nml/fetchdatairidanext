@@ -49,7 +49,7 @@ SAMPLE2,,SRR13191702
 | `sample_name`     | Provides custom prefix to read filenames                                            |
 | `insdc_accession` | The accession (run accession) from one of the INSDC databases (NCBI, ENA, or DDBJ). |
 
-An [example samplesheet](tests/data/samplesheets/samplesheet-sample_name.csv) has been provided with the pipeline.
+An [example samplesheet](tests/data/add-samplesheet.csv) has been provided with the pipeline.
 
 ## Running the pipeline
 
