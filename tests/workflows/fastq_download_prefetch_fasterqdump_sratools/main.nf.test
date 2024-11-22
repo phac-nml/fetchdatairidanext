@@ -16,8 +16,8 @@ nextflow_workflow {
             workflow {
                 """
                 input[0] = Channel.of(
-                    [[ id:'test_single_end', single_end:true  ], 'DRR000774'],
-                    [[ id:'test_paired_end', single_end:false ], 'SRR11140744']
+                    [[ irida_id:'test_single_end', single_end:true  ], 'DRR000774'],
+                    [[ irida_id:'test_paired_end', single_end:false ], 'SRR11140744']
                 )
                 input[1] = []
                 """
@@ -49,10 +49,10 @@ nextflow_workflow {
             workflow {
                 """
                 input[0] = Channel.of(
-                    [[ id:'SAMPLE1', single_end:false ], 'ERR1109373'],
-                    [[ id:'ERROR1', single_end:false ], 'SRR999908'],
-                    [[ id:'ERROR2', single_end:false ], 'INVALID!!'],
-                    [[ id:'SAMPLE2', single_end:false ], 'SRR13191702']
+                    [[ irida_id:'SAMPLE1', single_end:false ], 'ERR1109373'],
+                    [[ irida_id:'ERROR1', single_end:false ], 'SRR999908'],
+                    [[ irida_id:'ERROR2', single_end:false ], 'INVALID!!'],
+                    [[ irida_id:'SAMPLE2', single_end:false ], 'SRR13191702']
                 )
                 input[1] = []
                 """

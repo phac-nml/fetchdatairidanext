@@ -1,5 +1,5 @@
 {
-    "$schema": "http://json-schema.org/draft-07/schema",
+    "$schema": "https://json-schema.org/draft-07/schema",
     "$id": "https://raw.githubusercontent.com/phac-nml/fetchdatairidanext/main/assets/schema_input.json",
     "title": "phac-nml/fetchdatairidanext pipeline - params.input schema",
     "description": "Schema for the file provided with params.input",
@@ -9,10 +9,15 @@
         "properties": {
             "sample": {
                 "type": "string",
-                "pattern": "^\\S+$",
-                "meta": ["id"],
+                "pattern": "^[A-Za-z0-9_.-]+$",
+                "meta": ["irida_id"],
                 "unique": true,
                 "errorMessage": "Sample name must be provided and cannot contain spaces"
+            },
+            "sample_name": {
+                "type": "string",
+                "meta": ["id"],
+                "errorMessage": "Optional. Used to override reads filename when used in tools like IRIDA-Next"
             },
             "insdc_accession": {
                 "type": "string",

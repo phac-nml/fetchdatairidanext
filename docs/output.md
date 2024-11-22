@@ -29,7 +29,7 @@ The pipeline is built using [Nextflow](https://www.nextflow.io/) and processes d
 - `sratools/`
   - Sequence data in SRA format: `INSDC_ACCESSION/INSDC_ACCESSION.sra`
 - `reads/`
-  - Reads in fastq format: `INSDC_ACCESSION.fastq.gz`
+  - Reads in fastq format: `INSDC_ACCESSION.fastq.gz` (or alternatively `SAMPLE_NAME_INSDC_ACCESSION.fastq.gz` if `sample_name` provided)
 
 </details>
 

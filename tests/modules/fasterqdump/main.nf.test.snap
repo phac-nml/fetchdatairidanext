@@ -5,7 +5,7 @@
                 "0": [
                     [
                         {
-                            "id": "SAMPLE1"
+                            "irida_id": "SAMPLE1"
                         },
                         [
                             "ERR1109373.fastq.gz:md5,b9acccb3c5d317a99f604375a09991aa",
@@ -15,12 +15,12 @@
                     ]
                 ],
                 "1": [
-                    "versions.yml:md5,a3d61a9761e1606ef8459f0b68821d7a"
+                    "versions.yml:md5,6ff2d50b15c3f0eb9c72cd13a4a20295"
                 ],
                 "reads": [
                     [
                         {
-                            "id": "SAMPLE1"
+                            "irida_id": "SAMPLE1"
                         },
                         [
                             "ERR1109373.fastq.gz:md5,b9acccb3c5d317a99f604375a09991aa",
@@ -30,10 +30,14 @@
                     ]
                 ],
                 "versions": [
-                    "versions.yml:md5,a3d61a9761e1606ef8459f0b68821d7a"
+                    "versions.yml:md5,6ff2d50b15c3f0eb9c72cd13a4a20295"
                 ]
             }
         ],
-        "timestamp": "2024-01-25T23:20:38.2550152"
+        "meta": {
+            "nf-test": "0.9.0",
+            "nextflow": "24.04.4"
+        },
+        "timestamp": "2024-11-11T20:36:55.563890217"
     }
 }

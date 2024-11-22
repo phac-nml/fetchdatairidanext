@@ -31,6 +31,26 @@ SAMPLE2,SRR13191702
 
 An [example samplesheet](../assets/samplesheet.csv) has been provided with the pipeline.
 
+### IRIDA-Next Optional Samplesheet Configuration
+
+`fetchdatairidanext` also accepts the [IRIDA-Next](https://github.com/phac-nml/irida-next) format for samplesheets which contain the following columns: `sample`, `sample_name`, `insdc_accession`. The `sample` column values within a samplesheet should be unique.
+
+A final samplesheet file consisting of mlst_alleles and addresses may look something like the one below:
+
+```console
+sample,sample_name,insdc_accession
+SAMPLE1,S1,ERR1109373
+SAMPLE2,,SRR13191702
+```
+
+| Column            | Description                                                                         |
+| ----------------- | ----------------------------------------------------------------------------------- |
+| `sample`          | Custom sample name. Samples should be unique within a samplesheet.                  |
+| `sample_name`     | Provides custom prefix to read filenames                                            |
+| `insdc_accession` | The accession (run accession) from one of the INSDC databases (NCBI, ENA, or DDBJ). |
+
+An [example samplesheet](tests/data/add-samplesheet.csv) has been provided with the pipeline.
+
 ## Running the pipeline
 
 The typical command for running the pipeline is as follows:
@@ -131,6 +151,10 @@ You can also supply a run name to resume a specific run: `-resume [run-name]`. U
 ### `-c`
 
 Specify the path to a specific config file (this is a core Nextflow command). See the [nf-core website documentation](https://nf-co.re/usage/configuration) for more information.
+
+### `--rename_with_samplename`
+
+When `sample_name` is included in the sample sheet, it will be prefixed to read filenames (Default: true)
 
 ## Custom configuration
 

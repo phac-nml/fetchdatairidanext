@@ -4,8 +4,8 @@ process SRATOOLS_FASTERQDUMP {
 
     conda "${moduleDir}/environment.yml"
     container "${ workflow.containerEngine == 'singularity' && !task.ext.singularity_pull_docker_container ?
-        'https://depot.galaxyproject.org/singularity/mulled-v2-5f89fe0cd045cb1d615630b9261a1d17943a9b6a:2f4a4c900edd6801ff0068c2b3048b4459d119eb-0' :
-        'biocontainers/mulled-v2-5f89fe0cd045cb1d615630b9261a1d17943a9b6a:2f4a4c900edd6801ff0068c2b3048b4459d119eb-0' }"
+        'https://depot.galaxyproject.org/singularity/mulled-v2-5f89fe0cd045cb1d615630b9261a1d17943a9b6a:6a9ff0e76ec016c3d0d27e0c0d362339f2d787e6-0' :
+        'biocontainers/mulled-v2-5f89fe0cd045cb1d615630b9261a1d17943a9b6a:6a9ff0e76ec016c3d0d27e0c0d362339f2d787e6-0' }"
 
     input:
     tuple val(meta), path(sra)
@@ -22,6 +22,7 @@ process SRATOOLS_FASTERQDUMP {
     script:
     def args = task.ext.args ?: ''
     def args2 = task.ext.args2 ?: ''
+    def args3 = task.ext.args3 ?: ''
     def prefix = task.ext.prefix ?: "${meta.id}"
     def key_file = ''
 
@@ -46,8 +47,10 @@ process SRATOOLS_FASTERQDUMP {
         ${key_file} \\
         ${sra}
 
+    find reads/ -type f   -name "$args2" -exec mv {} {}.fastq \\;
+
     pigz \\
-        $args2 \\
+        $args3 \\
         --no-name \\
         --processes $task.cpus \\
         reads/*.fastq
