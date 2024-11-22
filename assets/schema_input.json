@@ -17,7 +17,7 @@
             "sample_name": {
                 "type": "string",
                 "meta": ["id"],
-                "errorMessage": "Optional. Used to override sample when used in tools like IRIDA-Next"
+                "errorMessage": "Optional. Used to override reads filename when used in tools like IRIDA-Next"
             },
             "insdc_accession": {
                 "type": "string",
