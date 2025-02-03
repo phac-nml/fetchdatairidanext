@@ -1,0 +1,77 @@
+nextflow_workflow {
+
+    name "Test workflow: fastq_download_fastq_dl/main.nf"
+    script "subworkflows/local/fastq_download_fastq_dl/main.nf"
+    workflow "FASTQ_DOWNLOAD_FASTQ_DL"
+    tag "subworkflow"
+    tag "fastq_dl"
+    tag "fastq_download_fastq_dl"
+
+    test("Parameters: default") {
+
+        when {
+            workflow {
+                """
+                input[0] = Channel.of(
+                    [[ irida_id:'test_single_end', single_end:true  ], 'DRR000774'],
+                    [[ irida_id:'test_paired_end', single_end:false ], 'SRR11140744']
+                )
+                """
+            }
+            params {
+                outdir = "output"
+                provider = "ENA"
+            }
+        }
+
+        then {
+            assertAll(
+                { assert workflow.success },
+                { assert snapshot(workflow.out).match() }
+            )
+
+            // Output files
+            assert path("$launchDir/output").exists()
+            assert path("$launchDir/output/reads/DRR000774.fastq.gz").exists()
+            assert path("$launchDir/output/reads/SRR11140744_1.fastq.gz").exists()
+            assert path("$launchDir/output/reads/SRR11140744_2.fastq.gz").exists()
+
+            // Failures is empty
+            def lines = path("$launchDir/output/prefetch/failures_report.csv").readLines()
+            assert lines.size() == 1
+            assert lines.contains("sample,error_accession")
+            assert lines.contains("test_single_end,DRR000774").equals(false)
+            assert lines.contains("test_paired_end,SRR11140744").equals(false)
+        }
+    }
+
+    test("Download errors: 403 and invalid") {
+
+        when {
+            workflow {
+                """
+                input[0] = Channel.of(
+                    [[ irida_id:'SAMPLE1', single_end:false ], 'ERR1109373'],
+                    [[ irida_id:'ERROR1', single_end:false ], 'SRR999908'],
+                    [[ irida_id:'ERROR2', single_end:false ], 'INVALID!!'],
+                    [[ irida_id:'SAMPLE2', single_end:false ], 'SRR13191702']
+                )
+                """
+            }
+            params {
+                outdir = "output"
+            }
+        }
+
+        then {
+            assert workflow.success
+            assert path("$launchDir/output").exists()
+
+            def lines = path("$launchDir/output/prefetch/failures_report.csv").readLines()
+            assert lines.size() == 3
+            assert lines.contains("sample,error_accession")
+            assert lines.contains("ERROR1,SRR999908")
+            assert lines.contains("ERROR2,INVALID!!")
+        }
+    }
+}
