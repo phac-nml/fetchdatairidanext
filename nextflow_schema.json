@@ -52,10 +52,7 @@
                 },
                 "provider": {
                     "type": "string",
-                    "enum": [
-                        "SRA",
-                        "ENA"
-                    ],
+                    "enum": ["SRA", "ENA"],
                     "description": "Provider from which to download the INSDC_ACCESSION (SRA)",
                     "default": "SRA"
                 }
