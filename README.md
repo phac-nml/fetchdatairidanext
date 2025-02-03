@@ -36,6 +36,8 @@ The main parameters are `--input` as defined above and `--output` for specifying
 
 `--rename_with_samplename` (Default: `true`) When `false`, samplesheet column `sample_name` not used for reads-renaming.
 
+`--provider ['SRA'|'ENA']` (Default: `SRA`) When using `SRA`, the data will be pulled with [`sra-tools fasterq-dump`](https://github.com/ncbi/sra-tools) and when using `ENA`, the data will be pulled with [`fastq-dl`](https://github.com/rpetit3/fastq-dl)
+
 Other parameters (defaults from nf-core) are defined in [nextflow_schema.json](nextflow_schema.json).
 
 # Running
@@ -119,6 +121,8 @@ This pipeline uses code and infrastructure developed and maintained by the [nf-c
 In addition, references of tools and data used in this pipeline are as follows:
 
 - The [fastq_download_prefetch_fasterqdump_sratools](https://nf-co.re/subworkflows/fastq_download_prefetch_fasterqdump_sratools) subworkflow from nf-core. Custom modifications to this workflow (and underlying modules) are found in the [subworkflows/local](subworkflows/local) and [modules/local](modules/local) directories.
+
+- The [fastq-dl tool](https://github.com/rpetit3/fastq-dl) for grabbing data from the ENA.
 
 Other works this pipeline makes use of are found in the [CITATIONS.md](CITATIONS.md) file.
 

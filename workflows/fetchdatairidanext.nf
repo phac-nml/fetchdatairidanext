@@ -31,7 +31,7 @@ WorkflowFetchdatairidanext.initialise(params, log)
 // SUBWORKFLOW: Consisting of a mix of local and nf-core/modules
 //
 include { FASTQ_DOWNLOAD_PREFETCH_FASTERQDUMP_SRATOOLS } from '../subworkflows/local/fastq_download_prefetch_fasterqdump_sratools'
-include { FASTQ_DOWNLOAD_FASTQ_DL } from '../subworkflows/local/fastq_download_fastq_dl'
+include { FASTQ_DOWNLOAD_FASTQ_DL                      } from '../subworkflows/local/fastq_download_fastq_dl'
 
 /*
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
