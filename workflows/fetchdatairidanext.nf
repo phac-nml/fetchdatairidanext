@@ -31,6 +31,7 @@ WorkflowFetchdatairidanext.initialise(params, log)
 // SUBWORKFLOW: Consisting of a mix of local and nf-core/modules
 //
 include { FASTQ_DOWNLOAD_PREFETCH_FASTERQDUMP_SRATOOLS } from '../subworkflows/local/fastq_download_prefetch_fasterqdump_sratools'
+include { FASTQ_DOWNLOAD_FASTQ_DL } from '../subworkflows/local/fastq_download_fastq_dl'
 
 /*
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -62,11 +63,19 @@ workflow FETCHDATAIRIDANEXT {
             return [["id": new_id, "irida_id": meta.irida_id[0], "insdc_accession": meta.insdc_accession[0]], meta.insdc_accession[0]]
         }
 
-    FASTQ_DOWNLOAD_PREFETCH_FASTERQDUMP_SRATOOLS (
-        ch_sra_ids = input,
-        ch_dbgap_key = []
-    )
-    ch_versions = ch_versions.mix(FASTQ_DOWNLOAD_PREFETCH_FASTERQDUMP_SRATOOLS.out.versions)
+    // Determine workflow based off of the provider
+    if ( params.provider.toLowerCase() == 'sra' ) {
+        FASTQ_DOWNLOAD_PREFETCH_FASTERQDUMP_SRATOOLS (
+            ch_sra_ids = input,
+            ch_dbgap_key = []
+        )
+        ch_versions = ch_versions.mix(FASTQ_DOWNLOAD_PREFETCH_FASTERQDUMP_SRATOOLS.out.versions)
+    } else {
+        FASTQ_DOWNLOAD_FASTQ_DL(
+            ch_ids = input
+        )
+        ch_versions = ch_versions.mix(FASTQ_DOWNLOAD_FASTQ_DL.out.versions)
+    }
 
     CUSTOM_DUMPSOFTWAREVERSIONS (
         ch_versions.unique().collectFile(name: 'collated_versions.yml')

@@ -1,0 +1,6 @@
+name: sratools_fasterqdump
+channels:
+  - conda-forge
+  - bioconda
+dependencies:
+  - bioconda::fastq-dl
