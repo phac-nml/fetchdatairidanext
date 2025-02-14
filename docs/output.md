@@ -18,7 +18,7 @@ The IRIDA Next-compliant JSON output file will be named `iridanext.output.json.g
 
 The pipeline is built using [Nextflow](https://www.nextflow.io/) and processes data using the following steps:
 
-- [Read downloads](#read-downloads) - Downloads data from INSDC databases (using NCBI's SRA Tools or fastq-dl).
+- [Read downloads](#read-downloads) - Downloads data from [International Sequence Data Collaboration (INSDC)][https://www.insdc.org/] databases (using NCBI's SRA Tools or fastq-dl).
 - [Failed read downloads](#failed-read-downloads) - Generates a CSV of accessions that failed to download
 - [Pipeline information](#pipeline-information) - Report metrics generated during the workflow execution
 - [IRIDA Next Output](#irida-next-output) - Generates a JSON output file that is compliant with IRIDA Next

@@ -8,7 +8,7 @@ nextflow_pipeline {
         when {
             params {
                 input = "$baseDir/tests/data/samplesheet.csv"
-                outdir = "test1_out"
+                outdir = "results"
             }
         }
 
@@ -16,13 +16,13 @@ nextflow_pipeline {
             assert workflow.success
 
             // IRIDA Next output file
-            assert path("$launchDir/test1_out/iridanext.output.json").json == path("$baseDir/tests/data/test1_iridanext.output.json").json
+            assert path("$launchDir/results/iridanext.output.json").json == path("$baseDir/tests/data/test_fetch_iridanext.output.json").json
 
             // Output data
-            assert path("$launchDir/test1_out/reads/ERR1109373_1.fastq.gz").linesGzip.size() == 512
-            assert path("$launchDir/test1_out/reads/ERR1109373_2.fastq.gz").linesGzip.size() == 512
-            assert path("$launchDir/test1_out/reads/SRR13191702_1.fastq.gz").linesGzip.size() == 364
-            assert path("$launchDir/test1_out/reads/SRR13191702_2.fastq.gz").linesGzip.size() == 364
+            assert path("$launchDir/results/reads/ERR1109373_1.fastq.gz").md5 == "9fd57225d6c07a31843276d6df9b15c0"
+            assert path("$launchDir/results/reads/ERR1109373_2.fastq.gz").md5 == "5a62e8f785687dce890cfb4fe3e607f9"
+            assert path("$launchDir/results/reads/SRR13191702_1.fastq.gz").md5 == "89c5be920021a035084d8aeb74f32df7"
+            assert path("$launchDir/results/reads/SRR13191702_2.fastq.gz").md5 == "56271be38a80db78ef3bdfc5d9909b98"
         }
     }
 
@@ -42,10 +42,10 @@ nextflow_pipeline {
             assert path("$launchDir/results/iridanext.output.json").json == path("$baseDir/tests/data/prefetch_errors_iridanext.output.json").json
 
             // Output data:
-            assert path("$launchDir/results/reads/ERR1109373_1.fastq.gz").linesGzip.size() == 512
-            assert path("$launchDir/results/reads/ERR1109373_2.fastq.gz").linesGzip.size() == 512
-            assert path("$launchDir/results/reads/SRR13191702_1.fastq.gz").linesGzip.size() == 364
-            assert path("$launchDir/results/reads/SRR13191702_2.fastq.gz").linesGzip.size() == 364
+            assert path("$launchDir/results/reads/ERR1109373_1.fastq.gz").md5 == "9fd57225d6c07a31843276d6df9b15c0"
+            assert path("$launchDir/results/reads/ERR1109373_2.fastq.gz").md5 == "5a62e8f785687dce890cfb4fe3e607f9"
+            assert path("$launchDir/results/reads/SRR13191702_1.fastq.gz").md5 == "89c5be920021a035084d8aeb74f32df7"
+            assert path("$launchDir/results/reads/SRR13191702_2.fastq.gz").md5 == "56271be38a80db78ef3bdfc5d9909b98"
 
             // These files should have failed, and have no output reads:
             assert path("$launchDir/results/reads/SRR999908_1.fastq.gz").exists() == false
@@ -60,7 +60,7 @@ nextflow_pipeline {
         when {
             params {
                 input = "$baseDir/tests/data/samplesheet.csv"
-                outdir = "test3_out"
+                outdir = "results"
                 provider = "ENA"
             }
         }
@@ -69,13 +69,13 @@ nextflow_pipeline {
             assert workflow.success
 
             // IRIDA Next output file
-            assert path("$launchDir/test3_out/iridanext.output.json").json == path("$baseDir/tests/data/test1_iridanext.output.json").json
+            assert path("$launchDir/results/iridanext.output.json").json == path("$baseDir/tests/data/test_fetch_iridanext.output.json").json
 
             // Output data
-            assert path("$launchDir/test3_out/reads/ERR1109373_1.fastq.gz").linesGzip.size() == 512
-            assert path("$launchDir/test3_out/reads/ERR1109373_2.fastq.gz").linesGzip.size() == 512
-            assert path("$launchDir/test3_out/reads/SRR13191702_1.fastq.gz").linesGzip.size() == 364
-            assert path("$launchDir/test3_out/reads/SRR13191702_2.fastq.gz").linesGzip.size() == 364
+            assert path("$launchDir/results/reads/ERR1109373_1.fastq.gz").md5 == "9fd57225d6c07a31843276d6df9b15c0"
+            assert path("$launchDir/results/reads/ERR1109373_2.fastq.gz").md5 == "5a62e8f785687dce890cfb4fe3e607f9"
+            assert path("$launchDir/results/reads/SRR13191702_1.fastq.gz").md5 == "89c5be920021a035084d8aeb74f32df7"
+            assert path("$launchDir/results/reads/SRR13191702_2.fastq.gz").md5 == "56271be38a80db78ef3bdfc5d9909b98"
         }
     }
 
@@ -96,10 +96,10 @@ nextflow_pipeline {
             assert path("$launchDir/results/iridanext.output.json").json == path("$baseDir/tests/data/prefetch_errors_iridanext.output.json").json
 
             // Output data:
-            assert path("$launchDir/results/reads/ERR1109373_1.fastq.gz").linesGzip.size() == 512
-            assert path("$launchDir/results/reads/ERR1109373_2.fastq.gz").linesGzip.size() == 512
-            assert path("$launchDir/results/reads/SRR13191702_1.fastq.gz").linesGzip.size() == 364
-            assert path("$launchDir/results/reads/SRR13191702_2.fastq.gz").linesGzip.size() == 364
+            assert path("$launchDir/results/reads/ERR1109373_1.fastq.gz").md5 == "9fd57225d6c07a31843276d6df9b15c0"
+            assert path("$launchDir/results/reads/ERR1109373_2.fastq.gz").md5 == "5a62e8f785687dce890cfb4fe3e607f9"
+            assert path("$launchDir/results/reads/SRR13191702_1.fastq.gz").md5 == "89c5be920021a035084d8aeb74f32df7"
+            assert path("$launchDir/results/reads/SRR13191702_2.fastq.gz").md5 == "56271be38a80db78ef3bdfc5d9909b98"
 
             // These files should have failed, and have no output reads:
             assert path("$launchDir/results/reads/SRR999908_1.fastq.gz").exists() == false

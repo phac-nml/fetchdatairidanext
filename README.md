@@ -36,7 +36,7 @@ The main parameters are `--input` as defined above and `--output` for specifying
 
 `--rename_with_samplename` (Default: `true`) When `false`, samplesheet column `sample_name` not used for reads-renaming.
 
-`--provider ['SRA'|'ENA']` (Default: `SRA`) When using `SRA`, the data will be pulled with [`sra-tools fasterq-dump`](https://github.com/ncbi/sra-tools) and when using `ENA`, the data will be pulled with [`fastq-dl`](https://github.com/rpetit3/fastq-dl)
+`--provider ['SRA'|'ENA']` (Default: `SRA`) When using `SRA`, the data will be pulled with [`sra-tools fasterq-dump`](https://github.com/ncbi/sra-tools) from the Sequence Read Archive and when using `ENA`, the data will be pulled with [`fastq-dl`](https://github.com/rpetit3/fastq-dl) from the European Nucleotide Archive
 
 Other parameters (defaults from nf-core) are defined in [nextflow_schema.json](nextflow_schema.json).
 

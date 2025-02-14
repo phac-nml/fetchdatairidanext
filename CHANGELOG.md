@@ -8,8 +8,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### `Added`
 
 - `--provider` parameter to be used to pick where to fetch data from and with what tool
-  - `--provider SRA` runs the current pipeline path
-  - `--provider ENA` runs fastq-dl to fetch data
+  - `--provider SRA` fetches data from the Sequence Read Archive
+  - `--provider ENA` fetches data from the European Nucleotide Archive
 
 ### `Changed`
 

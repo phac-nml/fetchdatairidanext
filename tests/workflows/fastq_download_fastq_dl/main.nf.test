@@ -32,9 +32,9 @@ nextflow_workflow {
 
             // Output files
             assert path("$launchDir/output").exists()
-            assert path("$launchDir/output/reads/DRR000774.fastq.gz").exists()
-            assert path("$launchDir/output/reads/SRR11140744_1.fastq.gz").exists()
-            assert path("$launchDir/output/reads/SRR11140744_2.fastq.gz").exists()
+            assert path("$launchDir/output/reads/DRR000774.fastq.gz").md5 == "3a6b97ab271c0943d5939effd708e544"
+            assert path("$launchDir/output/reads/SRR11140744_1.fastq.gz").md5 == "439cc63471f416970ba002d75b4c0039"
+            assert path("$launchDir/output/reads/SRR11140744_2.fastq.gz").md5 == "ddac5adc21bd8bee3054c886884c454b"
 
             // Failures is empty
             def lines = path("$launchDir/output/prefetch/failures_report.csv").readLines()
@@ -66,6 +66,10 @@ nextflow_workflow {
         then {
             assert workflow.success
             assert path("$launchDir/output").exists()
+            assert path("$launchDir/output/reads/ERR1109373_1.fastq.gz").md5 == "9fd57225d6c07a31843276d6df9b15c0"
+            assert path("$launchDir/output/reads/ERR1109373_2.fastq.gz").md5 == "5a62e8f785687dce890cfb4fe3e607f9"
+            assert path("$launchDir/output/reads/SRR13191702_1.fastq.gz").md5 == "89c5be920021a035084d8aeb74f32df7"
+            assert path("$launchDir/output/reads/SRR13191702.fastq.gz").md5 == "56271be38a80db78ef3bdfc5d9909b98"
 
             def lines = path("$launchDir/output/prefetch/failures_report.csv").readLines()
             assert lines.size() == 3

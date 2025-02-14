@@ -70,11 +70,13 @@ workflow FETCHDATAIRIDANEXT {
             ch_dbgap_key = []
         )
         ch_versions = ch_versions.mix(FASTQ_DOWNLOAD_PREFETCH_FASTERQDUMP_SRATOOLS.out.versions)
-    } else {
+    } else if ( params.provider.toLowerCase() == 'ena') {
         FASTQ_DOWNLOAD_FASTQ_DL(
             ch_ids = input
         )
         ch_versions = ch_versions.mix(FASTQ_DOWNLOAD_FASTQ_DL.out.versions)
+    } else {
+        exit 1, "Please provide a '--provider' with choices of either SRA or ENA. Exiting now."
     }
 
     CUSTOM_DUMPSOFTWAREVERSIONS (
