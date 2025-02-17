@@ -34,17 +34,17 @@ process SRATOOLS_FASTERQDUMP {
 
     # Make directory ahead of time since otherwise
     # fasterq-dump does not set correct permissions/owner
-    mkdir -p reads
+    mkdir -p reads_noprefix reads
 
     fasterq-dump \\
         $args \\
         --threads $task.cpus \\
-        --outdir reads \\
+        --outdir reads_noprefix \\
         ${key_file} \\
         ${sra}
 
     # Adds {prefix} to the output fastq file names
-    for i in reads/*.fastq; do b=`basename "\${i}"`; mv "reads/\${b}" "reads/${prefix}\${b}"; done
+    for i in reads_noprefix/*.fastq; do b=`basename "\${i}"`; mv "reads_noprefix/\${b}" "reads/${prefix}\${b}"; done
 
     pigz \\
         $args2 \\
