@@ -15,7 +15,7 @@ process PREFETCH_CHECKER {
         failures.each {
             if ( it[0].id != null) {
                 sample_name = true
-        }
+            }
         }
 
         // Failures

@@ -55,6 +55,12 @@
                     "enum": ["sra", "sralite"],
                     "description": "Default file type to download from the NCBI Sequence Read Archive",
                     "default": "sra"
+                },
+                "provider": {
+                    "type": "string",
+                    "enum": ["SRA", "ENA"],
+                    "description": "Provider from which to download the INSDC_ACCESSION (SRA)",
+                    "default": "SRA"
                 }
             }
         },
