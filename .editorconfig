@@ -24,6 +24,7 @@ indent_size = unset
 indent_size = unset
 
 # Ignore test output json files
-[/tests/data/*.json]
+[tests/data/*.json]
 end_of_line = unset
+insert_final_newline = unset
 trim_trailing_whitespace = unset
