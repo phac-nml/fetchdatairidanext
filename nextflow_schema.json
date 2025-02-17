@@ -50,12 +50,6 @@
                     "description": "Filenames for reads will have 'SAMPLE_NAME' prefixed to 'INSDC_ACCESSION' (True)",
                     "default": true
                 },
-                "sra_default_type": {
-                    "type": "string",
-                    "enum": ["sra", "sralite"],
-                    "description": "Default file type to download from the NCBI Sequence Read Archive",
-                    "default": "sra"
-                },
                 "provider": {
                     "type": "string",
                     "enum": ["SRA", "ENA"],
