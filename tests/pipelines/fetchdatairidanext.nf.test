@@ -19,10 +19,10 @@ nextflow_pipeline {
             assert path("$launchDir/results/iridanext.output.json").json == path("$baseDir/tests/data/test_fetch_iridanext.output.json").json
 
             // Output data
-            assert path("$launchDir/results/reads/ERR1109373_1.fastq.gz").md5 == "9fd57225d6c07a31843276d6df9b15c0"
-            assert path("$launchDir/results/reads/ERR1109373_2.fastq.gz").md5 == "5a62e8f785687dce890cfb4fe3e607f9"
-            assert path("$launchDir/results/reads/SRR13191702_1.fastq.gz").md5 == "89c5be920021a035084d8aeb74f32df7"
-            assert path("$launchDir/results/reads/SRR13191702_2.fastq.gz").md5 == "56271be38a80db78ef3bdfc5d9909b98"
+            assert path("$launchDir/results/reads/ERR1109373_1.fastq.gz").md5 == "38e94cf16bf3d3b7d3a05a4c21b8fcc3"
+            assert path("$launchDir/results/reads/ERR1109373_2.fastq.gz").md5 == "031a82c07f35c45ada5b6133b1181e68"
+            assert path("$launchDir/results/reads/SRR13191702_1.fastq.gz").md5 == "d819618657a2c82be29feff1f6c1657e"
+            assert path("$launchDir/results/reads/SRR13191702_2.fastq.gz").md5 == "a9d8e2a1a44630e518d16e6b586f2a09"
         }
     }
 
@@ -42,10 +42,10 @@ nextflow_pipeline {
             assert path("$launchDir/results/iridanext.output.json").json == path("$baseDir/tests/data/prefetch_errors_iridanext.output.json").json
 
             // Output data:
-            assert path("$launchDir/results/reads/ERR1109373_1.fastq.gz").md5 == "9fd57225d6c07a31843276d6df9b15c0"
-            assert path("$launchDir/results/reads/ERR1109373_2.fastq.gz").md5 == "5a62e8f785687dce890cfb4fe3e607f9"
-            assert path("$launchDir/results/reads/SRR13191702_1.fastq.gz").md5 == "89c5be920021a035084d8aeb74f32df7"
-            assert path("$launchDir/results/reads/SRR13191702_2.fastq.gz").md5 == "56271be38a80db78ef3bdfc5d9909b98"
+            assert path("$launchDir/results/reads/ERR1109373_1.fastq.gz").md5 == "38e94cf16bf3d3b7d3a05a4c21b8fcc3"
+            assert path("$launchDir/results/reads/ERR1109373_2.fastq.gz").md5 == "031a82c07f35c45ada5b6133b1181e68"
+            assert path("$launchDir/results/reads/SRR13191702_1.fastq.gz").md5 == "d819618657a2c82be29feff1f6c1657e"
+            assert path("$launchDir/results/reads/SRR13191702_2.fastq.gz").md5 == "a9d8e2a1a44630e518d16e6b586f2a09"
 
             // These files should have failed, and have no output reads:
             assert path("$launchDir/results/reads/SRR999908_1.fastq.gz").exists() == false
@@ -72,10 +72,10 @@ nextflow_pipeline {
             assert path("$launchDir/results/iridanext.output.json").json == path("$baseDir/tests/data/test_fetch_iridanext.output.json").json
 
             // Output data
-            assert path("$launchDir/results/reads/ERR1109373_1.fastq.gz").md5 == "9fd57225d6c07a31843276d6df9b15c0"
-            assert path("$launchDir/results/reads/ERR1109373_2.fastq.gz").md5 == "5a62e8f785687dce890cfb4fe3e607f9"
-            assert path("$launchDir/results/reads/SRR13191702_1.fastq.gz").md5 == "89c5be920021a035084d8aeb74f32df7"
-            assert path("$launchDir/results/reads/SRR13191702_2.fastq.gz").md5 == "56271be38a80db78ef3bdfc5d9909b98"
+            assert path("$launchDir/results/reads/ERR1109373_1.fastq.gz").md5 == "4cb0072f56d92847cb5d33edd78e1b00"
+            assert path("$launchDir/results/reads/ERR1109373_2.fastq.gz").md5 == "ac356dfe2caae9b30d4598eb954cd340"
+            assert path("$launchDir/results/reads/SRR13191702_1.fastq.gz").md5 == "baaaea61cba4294ec696fdfea1610848"
+            assert path("$launchDir/results/reads/SRR13191702_2.fastq.gz").md5 == "8e43ad99049fabb6526a4b846da01c32"
         }
     }
 
@@ -96,10 +96,10 @@ nextflow_pipeline {
             assert path("$launchDir/results/iridanext.output.json").json == path("$baseDir/tests/data/prefetch_errors_iridanext.output.json").json
 
             // Output data:
-            assert path("$launchDir/results/reads/ERR1109373_1.fastq.gz").md5 == "9fd57225d6c07a31843276d6df9b15c0"
-            assert path("$launchDir/results/reads/ERR1109373_2.fastq.gz").md5 == "5a62e8f785687dce890cfb4fe3e607f9"
-            assert path("$launchDir/results/reads/SRR13191702_1.fastq.gz").md5 == "89c5be920021a035084d8aeb74f32df7"
-            assert path("$launchDir/results/reads/SRR13191702_2.fastq.gz").md5 == "56271be38a80db78ef3bdfc5d9909b98"
+            assert path("$launchDir/results/reads/ERR1109373_1.fastq.gz").md5 == "4cb0072f56d92847cb5d33edd78e1b00"
+            assert path("$launchDir/results/reads/ERR1109373_2.fastq.gz").md5 == "ac356dfe2caae9b30d4598eb954cd340"
+            assert path("$launchDir/results/reads/SRR13191702_1.fastq.gz").md5 == "baaaea61cba4294ec696fdfea1610848"
+            assert path("$launchDir/results/reads/SRR13191702_2.fastq.gz").md5 == "8e43ad99049fabb6526a4b846da01c32"
 
             // These files should have failed, and have no output reads:
             assert path("$launchDir/results/reads/SRR999908_1.fastq.gz").exists() == false
