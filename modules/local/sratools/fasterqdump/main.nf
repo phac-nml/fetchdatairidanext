@@ -22,7 +22,7 @@ process SRATOOLS_FASTERQDUMP {
     script:
     def args = task.ext.args ?: ''
     def args2 = task.ext.args2 ?: ''
-    def prefix = task.ext.prefix ?: "${meta.id}"
+    def prefix = task.ext.add_prefix ? "${meta.id}_" : ""
     def key_file = ''
     if (certificate.toString().endsWith('.jwt')) {
         key_file += " --perm ${certificate}"
