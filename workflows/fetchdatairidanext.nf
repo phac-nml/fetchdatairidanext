@@ -16,7 +16,7 @@ log.info logo + paramsSummaryLog(workflow) + citation
 WorkflowFetchdatairidanext.initialise(params, log)
 
 // Constants for matching provider parameter
-String SRA = "sra" 
+String SRA = "sra"
 String ENA = "ena"
 
 /*
