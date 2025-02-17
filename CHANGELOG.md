@@ -15,6 +15,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Updated `nf-test` snapshots and added new tests for `--provider` feature
 - Updated `nextflow_schema.json` with the `--provider` parameter
+- Updated dependency `sra-tools` to version `3.0.8` so that `fasterq-dump` can handle SRA Lite files in addition to SRA files [pr 23](https://keepachangelog.com/en/1.0.0/).
 
 ## [1.2.0]
 
