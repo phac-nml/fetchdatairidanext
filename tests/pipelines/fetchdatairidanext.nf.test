@@ -19,8 +19,39 @@ nextflow_pipeline {
             assert path("$launchDir/results/iridanext.output.json").json == path("$baseDir/tests/data/test_fetch_iridanext.output.json").json
 
             // Output data
+            assert path("$launchDir/results/sratools/ERR1109373.sralite").exists() == false
+            assert path("$launchDir/results/sratools/ERR1109373.sra").md5 == "afbe98f16791123c17fc9f5a479ed2de"
             assert path("$launchDir/results/reads/ERR1109373_1.fastq.gz").md5 == "38e94cf16bf3d3b7d3a05a4c21b8fcc3"
             assert path("$launchDir/results/reads/ERR1109373_2.fastq.gz").md5 == "031a82c07f35c45ada5b6133b1181e68"
+            assert path("$launchDir/results/reads/SRR13191702_1.fastq.gz").md5 == "d819618657a2c82be29feff1f6c1657e"
+            assert path("$launchDir/results/reads/SRR13191702_2.fastq.gz").md5 == "a9d8e2a1a44630e518d16e6b586f2a09"
+        }
+    }
+
+    test("basic integration test NCBI download SRA Lite") {
+        tag "ncbi_sralite"
+
+        when {
+            params {
+                input = "$baseDir/tests/data/samplesheet.csv"
+                outdir = "results"
+                sra_default_type = "sralite"
+            }
+        }
+
+        then {
+            assert workflow.success
+
+            // IRIDA Next output file
+            assert path("$launchDir/results/iridanext.output.json").json == path("$baseDir/tests/data/test_fetch_iridanext.output.json").json
+
+            // Output data
+            assert path("$launchDir/results/sratools/ERR1109373.sralite").md5 == "3306f239f599dac65cf9e8a38893df93"
+            assert path("$launchDir/results/sratools/ERR1109373.sra").exists() == false
+            assert path("$launchDir/results/reads/ERR1109373_1.fastq.gz").md5 == "1de0d3c1b06ce522c1370caaf7185ea4"
+            assert path("$launchDir/results/reads/ERR1109373_2.fastq.gz").md5 == "0bdb325ecc45feaff204315a025e50f7"
+            assert path("$launchDir/results/sratools/SRR13191702.sralite").md5 == "b7cbfb8b358050edf4f5fc5036374e65"
+            assert path("$launchDir/results/sratools/SRR13191702.sra").exists() == false
             assert path("$launchDir/results/reads/SRR13191702_1.fastq.gz").md5 == "d819618657a2c82be29feff1f6c1657e"
             assert path("$launchDir/results/reads/SRR13191702_2.fastq.gz").md5 == "a9d8e2a1a44630e518d16e6b586f2a09"
         }
