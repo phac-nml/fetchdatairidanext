@@ -27,10 +27,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Fixed linting issues in CI caused by `nf-core` 3.0.1
 - Updated `nf-test` snapshots and added new tests for `sample_name` feature
 
-[IRIDA-Next update]: https://github.com/phac-nml/irida-next/pull/678
+[irida-next update]: https://github.com/phac-nml/irida-next/pull/678
 [speciesabundance pipeline]: https://github.com/phac-nml/speciesabundance/pull/24
 [issue #865]: https://github.com/ncbi/sra-tools/issues/865
-[PR #261]: https://github.com/nf-core/fetchngs/pull/261
+[pr #261]: https://github.com/nf-core/fetchngs/pull/261
 
 ## [1.1.1] - 2024-04-19
 
