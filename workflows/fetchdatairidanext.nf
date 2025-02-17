@@ -15,6 +15,10 @@ log.info logo + paramsSummaryLog(workflow) + citation
 
 WorkflowFetchdatairidanext.initialise(params, log)
 
+// Constants for matching provider parameter
+String SRA = "sra" 
+String ENA = "ena"
+
 /*
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     CONFIG FILES
@@ -64,13 +68,13 @@ workflow FETCHDATAIRIDANEXT {
         }
 
     // Determine workflow based off of the provider
-    if ( params.provider.toLowerCase() == 'sra' ) {
+    if ( params.provider.toLowerCase() == SRA ) {
         FASTQ_DOWNLOAD_PREFETCH_FASTERQDUMP_SRATOOLS (
             ch_sra_ids = input,
             ch_dbgap_key = []
         )
         ch_versions = ch_versions.mix(FASTQ_DOWNLOAD_PREFETCH_FASTERQDUMP_SRATOOLS.out.versions)
-    } else if ( params.provider.toLowerCase() == 'ena') {
+    } else if ( params.provider.toLowerCase() == ENA ) {
         FASTQ_DOWNLOAD_FASTQ_DL(
             ch_ids = input
         )
