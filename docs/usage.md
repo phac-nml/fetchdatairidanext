@@ -93,6 +93,16 @@ outdir: './results/'
 
 You can also generate such `YAML`/`JSON` files via [nf-core/launch](https://nf-co.re/launch).
 
+### Additional Parameters
+
+#### `--rename_with_samplename`
+
+When `sample_name` is included in the sample sheet, it will be prefixed to read filenames (Default: true)
+
+#### `--provider [SRA|ENA]`
+
+Choose which provider to fetch the data from with `--provider`. The choices are `SRA` or `ENA` and the tools that are run are based off which provider is given (Default: `SRA`)
+
 ### Reproducibility
 
 It is a good idea to specify a pipeline version when running the pipeline on your data. This ensures that a specific version of the pipeline code and software are used when you run your pipeline. If you keep using the same tag, you'll be running the same version of the pipeline, even if there have been changes to the code since.
@@ -151,10 +161,6 @@ You can also supply a run name to resume a specific run: `-resume [run-name]`. U
 ### `-c`
 
 Specify the path to a specific config file (this is a core Nextflow command). See the [nf-core website documentation](https://nf-co.re/usage/configuration) for more information.
-
-### `--rename_with_samplename`
-
-When `sample_name` is included in the sample sheet, it will be prefixed to read filenames (Default: true)
 
 ## Custom configuration
 

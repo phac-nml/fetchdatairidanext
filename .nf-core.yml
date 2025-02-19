@@ -1,5 +1,5 @@
 repository_type: pipeline
-
+nf_core_version: "3.0.2"
 lint:
   files_exist:
     - assets/nf-core-fetchdatairidanext_logo_light.png
@@ -21,7 +21,6 @@ lint:
     - .github/ISSUE_TEMPLATE/feature_request.yml
     - .github/PULL_REQUEST_TEMPLATE.md
     - .github/workflows/branch.yml
-    - .github/workflows/linting.yml
     - .gitignore
     - assets/email_template.txt
     - docs/README.md
