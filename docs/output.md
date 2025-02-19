@@ -7,6 +7,7 @@ This document describes the output produced by the pipeline.
 The directories listed below will be created in the results directory after the pipeline has finished. All paths are relative to the top-level results directory.
 
 - `sratools`: Data from the SRA tools step (downloading sequence reads).
+- `prefetch`: Reporting of any failed to find or download accessions
 - `reads`: The fastq files of downloaded reads.
 - `pipeline_info`: information about the pipeline's execution
 - `custom`: information on detected/generated NCBI settings used for accessing certain databases (see <https://nf-co.re/modules/custom_sratoolsncbisettings>).
@@ -17,7 +18,8 @@ The IRIDA Next-compliant JSON output file will be named `iridanext.output.json.g
 
 The pipeline is built using [Nextflow](https://www.nextflow.io/) and processes data using the following steps:
 
-- [Reads download](#prefetch-fasterq) - Downloads data from INSDC databases (using NCBI's SRA Tools).
+- [Read downloads](#read-downloads) - Downloads data from [International Sequence Data Collaboration (INSDC)][https://www.insdc.org/] databases (using NCBI's SRA Tools or fastq-dl).
+- [Failed read downloads](#failed-read-downloads) - Generates a CSV of accessions that failed to download
 - [Pipeline information](#pipeline-information) - Report metrics generated during the workflow execution
 - [IRIDA Next Output](#irida-next-output) - Generates a JSON output file that is compliant with IRIDA Next
 
@@ -30,6 +32,16 @@ The pipeline is built using [Nextflow](https://www.nextflow.io/) and processes d
   - Sequence data in SRA format: `INSDC_ACCESSION/INSDC_ACCESSION.sra`
 - `reads/`
   - Reads in fastq format: `INSDC_ACCESSION.fastq.gz` (or alternatively `SAMPLE_NAME_INSDC_ACCESSION.fastq.gz` if `sample_name` provided)
+
+</details>
+
+### Failed read downloads
+
+<details markdown="1">
+<summary>Output files</summary>
+
+- `prefetch/failures_report.csv`
+  - Sample and accession for reads that failed to download
 
 </details>
 

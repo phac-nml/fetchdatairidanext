@@ -9,9 +9,9 @@
                             "single_end": false
                         },
                         [
-                            "SRR11140744.fastq.gz:md5,96a821b351f3a450889a38e7099f7b95",
-                            "SRR11140744_1.fastq.gz:md5,8573015c91d099b6e30789f8bab2f43c",
-                            "SRR11140744_2.fastq.gz:md5,37e6f719a022dc3c9994c80fbc20c311"
+                            "SRR11140744.fastq.gz:md5,2adaca2017c2710576adc31e612b4e0c",
+                            "SRR11140744_1.fastq.gz:md5,a31c985a614b05e8beb05da7b6ea9c6d",
+                            "SRR11140744_2.fastq.gz:md5,353d40a9da709338ee7cf1f5e694c0c8"
                         ]
                     ],
                     [
@@ -19,13 +19,11 @@
                             "irida_id": "test_single_end",
                             "single_end": true
                         },
-                        "DRR000774.fastq.gz:md5,a110f93f7a9b0271455f5a435bce73c7"
+                        "DRR000774.fastq.gz:md5,2fa2a3ef2dccd1799278097860a8c031"
                     ]
                 ],
                 "1": [
-                    "versions.yml:md5,1a2218ff913fc33408bffccb081b5048",
-                    "versions.yml:md5,53d6e983afde3a28add2ffc6b7eba4f3",
-                    "versions.yml:md5,9c558ff624585a6eee82a19c8c0136db"
+                    "versions.yml:md5,6370b8b2476b5bc54b7001c33197b577"
                 ],
                 "reads": [
                     [
@@ -34,9 +32,9 @@
                             "single_end": false
                         },
                         [
-                            "SRR11140744.fastq.gz:md5,96a821b351f3a450889a38e7099f7b95",
-                            "SRR11140744_1.fastq.gz:md5,8573015c91d099b6e30789f8bab2f43c",
-                            "SRR11140744_2.fastq.gz:md5,37e6f719a022dc3c9994c80fbc20c311"
+                            "SRR11140744.fastq.gz:md5,2adaca2017c2710576adc31e612b4e0c",
+                            "SRR11140744_1.fastq.gz:md5,a31c985a614b05e8beb05da7b6ea9c6d",
+                            "SRR11140744_2.fastq.gz:md5,353d40a9da709338ee7cf1f5e694c0c8"
                         ]
                     ],
                     [
@@ -44,13 +42,11 @@
                             "irida_id": "test_single_end",
                             "single_end": true
                         },
-                        "DRR000774.fastq.gz:md5,a110f93f7a9b0271455f5a435bce73c7"
+                        "DRR000774.fastq.gz:md5,2fa2a3ef2dccd1799278097860a8c031"
                     ]
                 ],
                 "versions": [
-                    "versions.yml:md5,1a2218ff913fc33408bffccb081b5048",
-                    "versions.yml:md5,53d6e983afde3a28add2ffc6b7eba4f3",
-                    "versions.yml:md5,9c558ff624585a6eee82a19c8c0136db"
+                    "versions.yml:md5,6370b8b2476b5bc54b7001c33197b577"
                 ]
             }
         ],
@@ -58,6 +54,6 @@
             "nf-test": "0.9.2",
             "nextflow": "24.10.4"
         },
-        "timestamp": "2025-02-14T11:37:21.6413262"
+        "timestamp": "2025-02-03T10:31:24.480521123"
     }
 }

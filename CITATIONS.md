@@ -14,6 +14,7 @@
 
 - [NCBI sra-tools](https://github.com/ncbi/sra-tools)
 - [nf-core fastq_download_prefetch_fasterqdump_sratools subworkflow](https://nf-co.re/subworkflows/fastq_download_prefetch_fasterqdump_sratools)
+- [fastq-dl](https://github.com/rpetit3/fastq-dl)
 
 ## Software packaging/containerisation tools
 
