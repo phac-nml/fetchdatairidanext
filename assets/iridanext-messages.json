@@ -1,0 +1,12 @@
+{
+    "overrides": {
+        "definitions": {
+            "input_output_options": {
+                "description": {
+                    "en": "Define which data to use with the pipeline.",
+                    "fr": "Définir les données à utiliser avec le pipeline."
+                }
+            }
+        }
+    }
+}
