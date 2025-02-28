@@ -7,7 +7,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### `Changed`
 
-- Switched `SRATOOLS_FASTERQDUMP` process resources from `process_single` to `process_low` to increase resources (storage space) in our deployment for downloading large datasets.
+- Switched `SRATOOLS_FASTERQDUMP` process resources from `process_single` to `process_low` to increase resources (storage space) in our deployment for downloading large datasets in [PR #25](https://github.com/phac-nml/fetchdatairidanext/pull/25).
 
 ## [1.3.0] - 2025-02-19
 
