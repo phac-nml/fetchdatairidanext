@@ -21,15 +21,20 @@ nextflow_pipeline {
 
             // Output data
             // Below checks verify it's the SRA file that gets downloaded
+            // Note: The md5s
             assert path("$launchDir/results/sratools/ERR1109373/ERR1109373.sralite").exists() == false
             assert path("$launchDir/results/sratools/ERR1109373/ERR1109373.sra").md5 == "afbe98f16791123c17fc9f5a479ed2de"
             assert path("$launchDir/results/sratools/SRR13191702/SRR13191702.sralite").exists() == false
             assert path("$launchDir/results/sratools/SRR13191702/SRR13191702.sra").md5 == "3631351c470ae7cbf18ed5964affe9ab"
+            assert path("$launchDir/results/sratools/SRR37205362/SRR37205362.sralite").exists() == false
+            assert path("$launchDir/results/sratools/SRR37205362/SRR37205362.sra").md5 == "ffc0b8bbd20fde977c4a44c81771d3be"
 
             assert path("$launchDir/results/reads/ERR1109373_1.fastq.gz").md5 == "38e94cf16bf3d3b7d3a05a4c21b8fcc3"
             assert path("$launchDir/results/reads/ERR1109373_2.fastq.gz").md5 == "031a82c07f35c45ada5b6133b1181e68"
             assert path("$launchDir/results/reads/SRR13191702_1.fastq.gz").md5 == "d819618657a2c82be29feff1f6c1657e"
             assert path("$launchDir/results/reads/SRR13191702_2.fastq.gz").md5 == "a9d8e2a1a44630e518d16e6b586f2a09"
+            assert path("$launchDir/results/reads/SRR37205362_1.fastq.gz").md5 == "ff1e9560a8174a7b11546edc145f1113"
+            assert path("$launchDir/results/reads/SRR37205362_2.fastq.gz").md5 == "36ed9ac42cfb5c3d2a7545d403622f85"
         }
     }
 
