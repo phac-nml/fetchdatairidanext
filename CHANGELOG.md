@@ -3,6 +3,14 @@
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.3.3] - 2026-03-06
+
+### `Changed`
+
+- Adding GitHub CI tests against Nextflow `24.10.3`. [PR #28](https://github.com/phac-nml/fetchdatairidanext/pull/28)
+- Changed the container for module `SRATOOLS_FASTERQDUMP` to match the nf-core module commit [8e6139dbf4f3ca01bbac6152d2833e04edff18df](https://github.com/nf-core/modules/commit/8e6139dbf4f3ca01bbac6152d2833e04edff18df). [PR #31](https://github.com/phac-nml/fetchdatairidanext/pull/31)
+- Migrated the module `SRATOOLS_PREFETCH` from nf-core to local, to resolve some nf-core incompatibilities with `fetchdatairidanext`, and updated the container version to `sra-tools:3.2.1--h4304569_1`. [PR #31](https://github.com/phac-nml/fetchdatairidanext/pull/31)
+
 ## [1.3.2] - 2025-02-28
 
 ### `Changed`
@@ -72,6 +80,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Initial release of fetchdatairidanext pipeline which will download reads from NCBI/INSDC archives.
 
+[1.3.3]: https://github.com/phac-nml/fetchdatairidanext/releases/tag/1.3.3
 [1.3.2]: https://github.com/phac-nml/fetchdatairidanext/releases/tag/1.3.2
 [1.3.1]: https://github.com/phac-nml/fetchdatairidanext/releases/tag/1.3.1
 [1.3.0]: https://github.com/phac-nml/fetchdatairidanext/releases/tag/1.3.0
