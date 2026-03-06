@@ -14,11 +14,6 @@
                         "branch": "master",
                         "git_sha": "e719354ba77df0a1bd310836aa2039b45c29d620",
                         "installed_by": ["modules"]
-                    },
-                    "sratools/prefetch": {
-                        "branch": "master",
-                        "git_sha": "81880787133db07d9b4c1febd152c090eb8325dc",
-                        "installed_by": ["modules"]
                     }
                 }
             }
