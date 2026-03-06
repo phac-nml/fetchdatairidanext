@@ -5,7 +5,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [1.3.4] - 2026-03-06
 
-- Added `software_versions.yml` to the `iridanext.output.json.gz` file to track module container updates. [[PR #33](https://github.com/phac-nml/fetchdatairidanext/pull/33)]
+- Added `software_versions.yml` to the `iridanext.output.json.gz` file to track module container updates. [PR #33](https://github.com/phac-nml/fetchdatairidanext/pull/33)
 
 ## [1.3.3] - 2026-03-06
 
