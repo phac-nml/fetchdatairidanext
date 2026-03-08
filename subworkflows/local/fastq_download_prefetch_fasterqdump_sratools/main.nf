@@ -1,5 +1,5 @@
 include { CUSTOM_SRATOOLSNCBISETTINGS } from '../../../modules/nf-core/custom/sratoolsncbisettings/main'
-include { SRATOOLS_PREFETCH           } from '../../../modules/local/prefetch/main'
+include { SRATOOLS_PREFETCH           } from '../../../modules/local/sratools/prefetch/main'
 include { PREFETCH_CHECKER            } from '../../../modules/local/prefetchchecker/main'
 include { SRATOOLS_FASTERQDUMP        } from '../../../modules/local/sratools/fasterqdump/main'
 
