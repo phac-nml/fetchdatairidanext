@@ -3,7 +3,7 @@
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [1.3.4] - 2026-03-06
+## [1.3.4] - 2026-03-09
 
 - Added `software_versions.yml` to the `iridanext.output.json.gz` file to track module container updates. [PR #33](https://github.com/phac-nml/fetchdatairidanext/pull/33)
 - Move `CUSTOM_SRATOOLSNCBISETTINGS` to a local module, remove from nf-core, and update `sra-toolkit` to `3.2.1`. [PR #33](https://github.com/phac-nml/fetchdatairidanext/pull/33)
