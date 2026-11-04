@@ -3,6 +3,12 @@
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## Unreleased
+
+### Added
+
+- A fetchdatairidanext-specific JSON output schema that the nf-iridanext plugin will automatically validate its output against. Currently, this schema enforcement is only enabled during testing. [PR 36](https://github.com/phac-nml/fetchdatairidanext/pull/36)
+
 ## [1.3.4] - 2026-03-09
 
 - Added `software_versions.yml` to the `iridanext.output.json.gz` file to track module container updates. [PR #33](https://github.com/phac-nml/fetchdatairidanext/pull/33)
