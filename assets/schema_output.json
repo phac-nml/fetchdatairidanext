@@ -1,0 +1,72 @@
+{
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "$id": "https://raw.githubusercontent.com/phac-nml/fetchdatairidanext/main/assets/schema_output.json",
+    "title": "IRIDA Next Fetch Data Output Schema",
+    "description": "The fetchdatairidanext-specific schema used for validating IRIDA Next JSON output data",
+    "type": "object",
+    "properties": {
+        "files": {
+            "type": "object",
+            "properties": {
+                "global": {
+                    "type": "array",
+                    "items": {
+                        "properties": {
+                            "path": {
+                                "anyOf": [
+                                    {
+                                        "pattern": "^.*prefetch/.*failures_report.csv$",
+                                        "description": "A report containing information about samples that failed to download."
+                                    },
+                                    {
+                                        "pattern": "^.*pipeline_info/.*software_versions.yml$",
+                                        "description": "The software versions used within the pipeline."
+                                    }
+                                ]
+                            }
+                        },
+                        "additionalProperties": false
+                    },
+                    "uniqueItems": true
+                },
+                "samples": {
+                    "type": "object",
+                    "patternProperties": {
+                        "^.*$": {
+                            "type": "array",
+                            "items": {
+                                "properties": {
+                                    "path": {
+                                        "anyOf": [
+                                            {
+                                                "pattern": "^.*reads/.*.fastq.gz$",
+                                                "description": "The downloaded sample reads."
+                                            }
+                                        ]
+                                    }
+                                },
+                                "additionalProperties": false
+                            },
+                            "uniqueItems": true
+                        }
+                    }
+                }
+            }
+        },
+        "metadata": {
+            "type": "object",
+            "properties": {
+                "samples": {
+                    "type": "object",
+                    "patternProperties": {
+                        "^.*$": {
+                            "type": "object",
+                            "properties": {},
+                            "additionalProperties": false
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
