@@ -1,10 +1,13 @@
-# phac-nml/iridanextexample: Contributing Guidelines
+# phac-nml/fetchdatairidanext: Contributing Guidelines
 
 Hi there!
 Many thanks for taking an interest in improving phac-nml/fetchdatairidanext.
 
 We try to manage the required tasks for phac-nml/fetchdatairidanext using GitHub issues, you probably came to this page when creating one.
 Please use the pre-filled template to save time.
+
+However, don't be put off by this template - other more general issues and suggestions are welcome!
+Contributions to the code are even more welcome ;)
 
 ## Contribution workflow
 
@@ -27,7 +30,7 @@ There are typically two types of tests that run:
 
 ### Lint tests
 
-`phac-nml` has a [set of guidelines](https://github.com/phac-nml/pipeline-standards) which all pipelines must adhere to. These are a subset of the [nf-core set of guidelines](https://nf-co.re/developers/guidelines).
+`nf-core` has a [set of guidelines](https://nf-co.re/developers/guidelines) which all pipelines must adhere to.
 To enforce these and ensure that all pipelines stay in sync, we have developed a helper tool which runs checks on the pipeline code. This is in the [nf-core/tools repository](https://github.com/nf-core/tools) and once installed can be run locally with the `nf-core lint <pipeline-directory>` command.
 
 If any failures or warnings are encountered, please follow the listed URL for more documentation.
@@ -49,7 +52,7 @@ These tests are run both with the latest available version of `Nextflow` and als
 
 ## Getting help
 
-For further information/help, please consult the [phac-nml/fetchdatairidanext documentation](https://github.com/phac-nml/fetchdatairidanext/).
+For further information/help, please consult the [phac-nml/fetchdatairidanext documentation](https://github.com/phac-nml/fetchdatairidanext).
 
 ## Pipeline contribution conventions
 
@@ -67,7 +70,8 @@ If you wish to contribute a new step, please use the following coding standards:
 6. Add sanity checks and validation for all relevant parameters.
 7. Perform local tests to validate that the new code works as expected.
 8. If applicable, add a new test command in `.github/workflow/ci.yml`.
-9. Add a description of the output files to `docs/output.md`.
+9. Update MultiQC config `assets/multiqc_config.yml` so relevant suffixes, file name clean up and module plots are in the appropriate order. If applicable, add a [MultiQC](https://https://multiqc.info/) module.
+10. Add a description of the output files and if relevant any appropriate images from the MultiQC report to `docs/output.md`.
 
 ### Default values
 
@@ -95,3 +99,18 @@ If you are using a new feature from core Nextflow, you may bump the minimum requ
 ### Images and figures
 
 For overview images and other documents we follow the nf-core [style guidelines and examples](https://nf-co.re/developers/design_guidelines).
+
+## GitHub Codespaces
+
+This repo includes a devcontainer configuration which will create a GitHub Codespaces for Nextflow development! This is an online developer environment that runs in your browser, complete with VSCode and a terminal.
+
+To get started:
+
+- Open the repo in [Codespaces](https://github.com/phac-nml/fetchdatairidanext/codespaces)
+- Tools installed
+  - nf-core
+  - Nextflow
+
+Devcontainer specs:
+
+- [DevContainer config](.devcontainer/devcontainer.json)
