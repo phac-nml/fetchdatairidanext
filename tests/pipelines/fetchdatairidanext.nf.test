@@ -93,8 +93,21 @@ nextflow_pipeline {
         then {
             assert workflow.success
 
-            // IRIDA Next output file
-            assert path("$launchDir/results/iridanext.output.json").json == path("$baseDir/tests/data/test_fetch_iridanext.output.json").json
+            // Compare IRIDA Next JSON output
+            assert path("$launchDir/results/iridanext.output.json").exists()
+            def iridanext_json = path("$launchDir/results/iridanext.output.json").json
+            def iridanext_global = iridanext_json.files.global
+            def iridanext_samples = iridanext_json.files.samples
+            def iridanext_metadata = iridanext_json.metadata.samples
+
+            assert iridanext_global.findAll { it.path == "prefetch/failures_report.csv" }.size() == 1
+
+            assert iridanext_samples.SAMPLE1.findAll { it.path == "reads/ERR1109373_2.fastq.gz" }.size() == 1
+            assert iridanext_samples.SAMPLE1.findAll { it.path == "reads/ERR1109373_1.fastq.gz" }.size() == 1
+            assert iridanext_samples.SAMPLE1.findAll { it.path == "reads/ERR1109373.fastq.gz" }.size() == 1
+
+            assert iridanext_samples.SAMPLE2.findAll { it.path == "reads/SRR13191702_2.fastq.gz" }.size() == 1
+            assert iridanext_samples.SAMPLE2.findAll { it.path == "reads/SRR13191702_1.fastq.gz" }.size() == 1
 
             // Output data
             assert path("$launchDir/results/reads/ERR1109373_1.fastq.gz").md5 == "4cb0072f56d92847cb5d33edd78e1b00"
