@@ -16,6 +16,9 @@ nextflow_pipeline {
         then {
             assert workflow.success
 
+            def combined_stdout = workflow.stdout.join(",")
+            assert combined_stdout.contains("JSON did not match schema") == false
+
             // Compare IRIDA Next JSON output
             assert path("$launchDir/results/iridanext.output.json").exists()
             def iridanext_json = path("$launchDir/results/iridanext.output.json").json
@@ -63,6 +66,9 @@ nextflow_pipeline {
         then {
             assert workflow.success
 
+            def combined_stdout = workflow.stdout.join(",")
+            assert combined_stdout.contains("JSON did not match schema") == false
+
             // Compare IRIDA Next JSON output
             assert path("$launchDir/results/iridanext.output.json").exists()
             def iridanext_json = path("$launchDir/results/iridanext.output.json").json
@@ -106,6 +112,9 @@ nextflow_pipeline {
         then {
             assert workflow.success
 
+            def combined_stdout = workflow.stdout.join(",")
+            assert combined_stdout.contains("JSON did not match schema") == false
+
             // Compare IRIDA Next JSON output
             assert path("$launchDir/results/iridanext.output.json").exists()
             def iridanext_json = path("$launchDir/results/iridanext.output.json").json
@@ -143,6 +152,9 @@ nextflow_pipeline {
 
         then {
             assert workflow.success
+
+            def combined_stdout = workflow.stdout.join(",")
+            assert combined_stdout.contains("JSON did not match schema") == false
 
             // Compare IRIDA Next JSON output
             assert path("$launchDir/results/iridanext.output.json").exists()
