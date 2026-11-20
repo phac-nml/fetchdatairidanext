@@ -3,7 +3,7 @@ nextflow_process {
     name "Test Process CUSTOM_SRATOOLSNCBISETTINGS"
     script "../main.nf"
     process "CUSTOM_SRATOOLSNCBISETTINGS"
-    config "modules/nf-core/custom/sratoolsncbisettings/tests/nextflow.config"
+    config "modules/local/sratoolsncbisettings/tests/nextflow.config"
     tag "modules"
     tag "modules_nfcore"
     tag "custom"
@@ -21,7 +21,7 @@ nextflow_process {
             process {
                 """
                 file(params.settings_path).mkdirs()
-                def settings = file(params.modules_testdata_base_path + 'generic/config/ncbi_user_settings.mkfg', checkIfExists: true)
+                def settings = file('$baseDir/tests/data/ncbi_user_settings.mkfg', checkIfExists: true)
                 settings.copyTo(params.settings_file)
                 """
             }
