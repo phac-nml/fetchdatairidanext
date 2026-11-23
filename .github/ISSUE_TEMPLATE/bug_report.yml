@@ -5,7 +5,10 @@ body:
   - type: markdown
     attributes:
       value: |
-        Before you post this issue, please check the documentation.
+        Before you post this issue, please check the documentation:
+
+        - [nf-core website: troubleshooting](https://nf-co.re/usage/troubleshooting)
+        - [phac-nml/fetchdatairidanext pipeline documentation](https://github.com/phac-nml/fetchdatairidanext/blob/main/docs/usage.md)
 
   - type: textarea
     id: description
@@ -44,4 +47,4 @@ body:
         * Executor _(eg. slurm, local, awsbatch)_
         * Container engine: _(e.g. Docker, Singularity, Conda, Podman, Shifter, Charliecloud, or Apptainer)_
         * OS _(eg. CentOS Linux, macOS, Linux Mint)_
-        * Version of phac-nml/iridanextexample _(eg. 1.1, 1.5, 1.8.2)_
+        * Version of phac-nml/fetchdatairidanext _(eg. 1.1, 1.5, 1.8.2)_

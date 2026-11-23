@@ -1,10 +1,13 @@
-# phac-nml/iridanextexample: Contributing Guidelines
+# phac-nml/fetchdatairidanext: Contributing Guidelines
 
 Hi there!
 Many thanks for taking an interest in improving phac-nml/fetchdatairidanext.
 
 We try to manage the required tasks for phac-nml/fetchdatairidanext using GitHub issues, you probably came to this page when creating one.
 Please use the pre-filled template to save time.
+
+However, don't be put off by this template - other more general issues and suggestions are welcome!
+Contributions to the code are even more welcome ;)
 
 ## Contribution workflow
 
@@ -49,7 +52,7 @@ These tests are run both with the latest available version of `Nextflow` and als
 
 ## Getting help
 
-For further information/help, please consult the [phac-nml/fetchdatairidanext documentation](https://github.com/phac-nml/fetchdatairidanext/).
+For further information/help, please consult the [phac-nml/fetchdatairidanext documentation](https://github.com/phac-nml/fetchdatairidanext).
 
 ## Pipeline contribution conventions
 
@@ -95,3 +98,18 @@ If you are using a new feature from core Nextflow, you may bump the minimum requ
 ### Images and figures
 
 For overview images and other documents we follow the nf-core [style guidelines and examples](https://nf-co.re/developers/design_guidelines).
+
+## GitHub Codespaces
+
+This repo includes a devcontainer configuration which will create a GitHub Codespaces for Nextflow development! This is an online developer environment that runs in your browser, complete with VSCode and a terminal.
+
+To get started:
+
+- Open the repo in [Codespaces](https://github.com/phac-nml/fetchdatairidanext/codespaces)
+- Tools installed
+  - nf-core
+  - Nextflow
+
+Devcontainer specs:
+
+- [DevContainer config](.devcontainer/devcontainer.json)

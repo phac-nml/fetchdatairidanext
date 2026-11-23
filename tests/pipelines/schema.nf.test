@@ -1,0 +1,25 @@
+nextflow_pipeline {
+
+    name "Schema Testing"
+    script "main.nf"
+
+    test("Schema - Bad File") {
+        tag "schema_bad_file"
+        config "${projectDir}/tests/configs/iridanext_bad_file.config"
+
+        when {
+            params {
+                input = "$baseDir/tests/data/samplesheet.csv"
+                outdir = "results"
+            }
+        }
+
+        then {
+            assert workflow.success
+            assert path("$launchDir/results").exists()
+
+            def combined_stdout = workflow.stdout.join(",")
+            assert combined_stdout.contains('Validation errors: "custom/user-settings.mkfg"')
+        }
+    }
+}
